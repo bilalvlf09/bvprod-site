@@ -96,7 +96,7 @@ function addCardHover(card) {
 
 /* ---------- 3D tilt on cards ---------- */
 function initTilt() {
-  if (window.matchMedia('(pointer:coarse)').matches) return;
+  if (window.matchMedia('(pointer:coarse)').matches || prefersReducedMotion) return;
   document.querySelectorAll('[data-tilt-grid]').forEach(grid => {
     Array.from(grid.children).forEach((card, i) => {
       const icon = card.querySelector('[data-tilt-icon]');

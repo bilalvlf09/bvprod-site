@@ -26,9 +26,27 @@
   .real-section-header { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:32px; }
   .real-section-title { font-size:clamp(28px,3.4vw,48px); }
   .real-arrows { display:flex; gap:10px; }
+  .carousel-arrow {
+    width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(255,255,255,.68));
+    border:1px solid rgba(47,47,48,.14); color:var(--text-dark); flex:none;
+    font-size:22px; font-weight:700; line-height:1; cursor:pointer;
+    box-shadow:0 6px 18px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.7);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .carousel-arrow:hover { background:#fff; box-shadow:0 10px 26px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.85); transform:translateY(-2px); }
+  .carousel-arrow:active { transform:translateY(0) scale(.94); }
+  .carousel-arrow:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 
   .featured-strip { padding:0 64px 12px; }
-  .featured-card { flex:none; width:260px; scroll-snap-align:start; border-radius:20px; overflow:hidden; background:#141414; }
+  .featured-card {
+    flex:none; width:260px; scroll-snap-align:start; border-radius:20px; overflow:hidden;
+    background:#141414; display:block; text-decoration:none; color:inherit; cursor:pointer;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .featured-card:hover { box-shadow:0 20px 46px rgba(0,0,0,.45), 0 0 0 1px rgba(194,125,255,.18); }
+  .featured-card:active { transform:scale(.98) !important; }
+  .featured-card:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
   .featured-cover { height:180px; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:#fff; font-family:var(--font-display); font-size:15px; line-height:1.3; }
   .featured-cover img { width:100%; height:100%; object-fit:cover; display:block; }
   .featured-body { padding:16px; }
@@ -36,7 +54,10 @@
   .featured-tag { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:3px 9px; border-radius:100px; background:rgba(255,255,255,.08); color:#BEBDBE; }
   .featured-name { font-family:var(--font-display); font-size:15px; color:var(--text-invert); margin-bottom:6px; }
   .featured-desc { margin:0 0 10px; font-size:12px; line-height:1.4; color:var(--text-mid); }
-  .featured-link { font-size:12px; font-weight:700; color:var(--accent); text-decoration:none; }
+  .featured-link { font-size:12px; font-weight:700; color:var(--accent); text-decoration:none; transition:color .2s ease; }
+  .featured-link .link-arrow { display:inline-block; transition:transform .25s ease; }
+  .featured-card:hover .featured-link { color:#d9b8ff; }
+  .featured-card:hover .featured-link .link-arrow { transform:translateX(4px); }
 
   .phones-section { background:#09090b; padding:88px 0; }
   .phones-stage { border-radius:36px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); padding:40px 24px; margin:0 64px; }
@@ -143,103 +164,103 @@
         <div style="display:flex;align-items:center;gap:16px;">
           <span style="font-size:13px;color:var(--text-light);font-weight:600;">10 réalisations</span>
           <div class="real-arrows">
-            <button type="button" class="scroll-arrow scroll-arrow-light" data-scroll-prev="proj-strip" aria-label="Précédent">‹</button>
-            <button type="button" class="scroll-arrow scroll-arrow-light" data-scroll-next="proj-strip" aria-label="Suivant">›</button>
+            <button type="button" class="carousel-arrow" data-scroll-prev="proj-strip" aria-label="Précédent">‹</button>
+            <button type="button" class="carousel-arrow" data-scroll-next="proj-strip" aria-label="Suivant">›</button>
           </div>
         </div>
       </div>
     </div>
-    <div id="proj-strip" data-scroll-strip data-scroll-step="276" class="scroll-strip featured-strip" style="gap:16px;">
-      <article class="featured-card">
+    <div id="proj-strip" data-scroll-strip data-scroll-step="276" data-tilt-grid class="scroll-strip featured-strip" style="gap:16px;">
+      <a class="featured-card" href="https://bvprodwix.wixsite.com/my-site-1" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover"><img src="/assets/cryptolostplanet.jpg" alt="Crypto Lost Planet"></div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag">Wix Studio</span><span class="featured-tag">Crypto · NFT</span></div>
           <div class="featured-name">Crypto Lost Planet</div>
           <p class="featured-desc">Plateforme NFT &amp; crypto. Design system sur-mesure, animations fluides.</p>
-          <span class="featured-link">Voir →</span>
+          <span class="featured-link">Voir <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
-        <div class="featured-cover" style="background:linear-gradient(160deg,#0d2b1c,#061710);">FT</div>
-        <div class="featured-body">
-          <div class="featured-tags"><span class="featured-tag">Wix Studio</span><span class="featured-tag">Musique · Événementiel</span></div>
-          <div class="featured-name">Freshtouch Mix</div>
-          <p class="featured-desc">Plateforme musicale &amp; événementielle. Interface immersive, billetterie intégrée.</p>
-          <span class="featured-link">Voir →</span>
-        </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://bvprodwix.wixstudio.com/les-associes" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:linear-gradient(135deg,#2a2a2a,#1a1a1a 60%,#3ddc6e 60%);">Les Associés</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag" style="color:#3ddc6e;">Wix Studio</span><span class="featured-tag">Juridique</span></div>
           <div class="featured-name">Les Associés</div>
           <p class="featured-desc">Cabinet d'avocats parisien. Design bold &amp; minimaliste, vert électrique.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://freshtouchmix.wixstudio.com/freshtouchmix" target="_blank" rel="noopener noreferrer">
+        <div class="featured-cover" style="background:linear-gradient(160deg,#0d2b1c,#061710);">FT</div>
+        <div class="featured-body">
+          <div class="featured-tags"><span class="featured-tag">Wix Studio</span><span class="featured-tag">Musique · Événementiel</span></div>
+          <div class="featured-name">Freshtouch Mix</div>
+          <p class="featured-desc">Plateforme musicale &amp; événementielle. Interface immersive, billetterie intégrée.</p>
+          <span class="featured-link">Voir <span class="link-arrow">→</span></span>
+        </div>
+      </a>
+      <a class="featured-card" href="https://bvprodwix.wixstudio.com/arenacompagny2" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:radial-gradient(circle,#3a1030,#0a0208);">COMPAGNY ARENA</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag">Wix Studio</span><span class="featured-tag">Événementiel</span></div>
           <div class="featured-name">Compagny Arena</div>
           <p class="featured-desc">Plateforme de concours de talents. Ambiance scène &amp; lumières.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://www.dolcevitatours.fr/" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:linear-gradient(160deg,#241a0d,#0a0704);color:#d8b978;font-style:italic;">Découvrez Paris</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag" style="color:#d8b978;">Wix Studio</span><span class="featured-tag">Tourisme · Paris</span></div>
           <div class="featured-name">Dolce Vita Paris</div>
           <p class="featured-desc">Balades en scooter vintage à Paris. Esthétique cinéma noir &amp; or.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://bvprodwix.wixstudio.com/myprivatefriendly" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:linear-gradient(160deg,#241d16,#0a0806);font-style:italic;">La France, en toute intimité</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag">Wix Studio</span><span class="featured-tag">Tourisme privé</span></div>
           <div class="featured-name">My Private Friendly Tour</div>
           <p class="featured-desc">La France en toute intimité. Design élégant &amp; immersif.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://www.collegue.me/" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:linear-gradient(160deg,#0a1f1c,#03100e);">🤖 Collègue</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag" style="color:#3ec6b8;">Wix Studio</span><span class="featured-tag">SaaS · IA</span></div>
           <div class="featured-name">Collègue</div>
           <p class="featured-desc">Assistant IA pour professionnels de santé. Interface SaaS sombre &amp; moderne.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://nutri-glow-kit.vercel.app/" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:#f3ead9;color:#4a3f2c;">✦ Nutri Journey</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag">Web App</span><span class="featured-tag">Nutrition · Santé</span></div>
           <div class="featured-name">Nutri Journey</div>
           <p class="featured-desc">Application nutrition &amp; bien-être. UI claire, chaleureuse, médicalement conçue.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://www.coachingfitness.net/" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:linear-gradient(160deg,#221a0a,#0a0704);color:#d8b978;">TRANSFORMEZ VOTRE POTENTIEL</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag" style="color:#d8b978;">Wix Studio</span><span class="featured-tag">Coaching · Sport</span></div>
           <div class="featured-name">Méthode CC</div>
           <p class="featured-desc">Coaching sportif 40+. Identité premium noir &amp; or, programmes sur-mesure.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
-      <article class="featured-card">
+      </a>
+      <a class="featured-card" href="https://www.ekors-studiosdejardin.com/" target="_blank" rel="noopener noreferrer">
         <div class="featured-cover" style="background:linear-gradient(135deg,#5a4632,#7a624a 60%);">Ekor's Studios</div>
         <div class="featured-body">
           <div class="featured-tags"><span class="featured-tag" style="color:#c8a878;">Wix Studio</span><span class="featured-tag">Architecture</span></div>
           <div class="featured-name">Ekor's Studios de Jardin</div>
           <p class="featured-desc">Studios de jardin sur-mesure. Esthétique bois naturel &amp; épure.</p>
-          <span class="featured-link">Voir le projet →</span>
+          <span class="featured-link">Voir le projet <span class="link-arrow">→</span></span>
         </div>
-      </article>
+      </a>
     </div>
   </section>
 
@@ -254,8 +275,8 @@
         <div style="display:flex;align-items:center;gap:16px;">
           <a href="/services#devis-target" data-glass-btn="light" class="btn btn-light">Demander un devis →</a>
           <div class="real-arrows">
-            <button type="button" class="scroll-arrow" data-scroll-prev="phone-strip" aria-label="Précédent">‹</button>
-            <button type="button" class="scroll-arrow" data-scroll-next="phone-strip" aria-label="Suivant">›</button>
+            <button type="button" class="carousel-arrow" data-scroll-prev="phone-strip" aria-label="Précédent">‹</button>
+            <button type="button" class="carousel-arrow" data-scroll-next="phone-strip" aria-label="Suivant">›</button>
           </div>
         </div>
       </div>
