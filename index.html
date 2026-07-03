@@ -203,7 +203,7 @@
         <div class="eyebrow" style="color:var(--text-mid);">Motion Design</div>
         <h2 class="motion-title">Animations qui<br><span style="color:var(--accent);">marquent les esprits.</span></h2>
       </div>
-      <button id="motion-scroll-btn" type="button" aria-label="Faites défiler les animations" class="scroll-arrow" style="width:auto;border-radius:100px;gap:10px;padding:12px 22px;">
+      <button id="motion-scroll-btn" type="button" aria-label="Faites défiler les animations" class="scroll-arrow" data-scroll-next="motion-strip" style="width:auto;border-radius:100px;gap:10px;padding:12px 22px;">
         <span style="font-size:13px;color:var(--text-invert);">Faites défiler</span>
         <span style="font-size:16px;color:var(--accent);">→</span>
       </button>
@@ -211,7 +211,7 @@
     <div class="scroll-progress motion-progress-wrap">
       <div class="scroll-progress-bar" data-scroll-progress="motion-strip"></div>
     </div>
-    <div id="motion-strip" data-motion-strip class="scroll-strip motion-strip">
+    <div id="motion-strip" data-motion-strip data-scroll-strip data-scroll-step="780" class="scroll-strip motion-strip">
       <div class="video-card">
         <video loop muted playsinline preload="metadata"><source src="/assets/motion-assd.mp4" type="video/mp4"></video>
         <div class="video-card-meta">

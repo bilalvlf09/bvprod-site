@@ -247,7 +247,12 @@ function initMotionStrips() {
       wrap.appendChild(soundBtn);
     });
 
-    strip.addEventListener('wheel', (e) => { e.preventDefault(); strip.scrollLeft += e.deltaY * 1.3; }, { passive: false });
+    strip.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        strip.scrollLeft += e.deltaX;
+      }
+    }, { passive: false });
     strip.addEventListener('scroll', () => {
       if (!bar) return;
       const max = strip.scrollWidth - strip.clientWidth;

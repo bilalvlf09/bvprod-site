@@ -271,8 +271,10 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 
 /* ---------- horizontal scroll strips ---------- */
 .scroll-strip {
-  display:flex; gap:20px; overflow-x:auto; scroll-behavior:smooth;
+  display:flex; gap:20px; overflow-x:auto; overflow-y:hidden; scroll-behavior:smooth;
   scrollbar-width:none; -ms-overflow-style:none; cursor:grab;
+  scroll-snap-type:x proximity; touch-action:pan-y;
+  user-select:none; -webkit-user-select:none;
 }
 .scroll-strip::-webkit-scrollbar { display:none; }
 .scroll-strip.grabbing { cursor:grabbing; }
@@ -285,7 +287,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 .scroll-arrow-light { background:rgba(0,0,0,.04); border:1px solid rgba(0,0,0,.08); }
 
 /* ---------- video cards ---------- */
-.video-card { flex:none; width:760px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:14px 14px 18px; }
+.video-card { flex:none; width:760px; scroll-snap-align:start; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:14px 14px 18px; }
 .video-card video { width:100%; display:block; object-fit:contain; max-height:460px; border-radius:18px; background:#080808; }
 .video-card-meta { padding:18px 4px 0; display:flex; align-items:flex-start; justify-content:space-between; }
 .video-card-num { font-family:var(--font-display); font-size:44px; color:#141414; letter-spacing:-.03em; line-height:1; user-select:none; }
