@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — BVProd, agence Wix Studio à Paris</title>
+<meta name="description" content="Un projet de site à créer ou une question ? Contactez BVProd, agence Wix Studio basée à Paris.">
+<link rel="canonical" href="https://www.bv-prod.fr/contact">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="BVProd">
+<meta property="og:title" content="Contact — BVProd, agence Wix Studio à Paris">
+<meta property="og:description" content="Un projet de site à créer ou une question ? Contactez BVProd, agence Wix Studio basée à Paris.">
+<meta property="og:image" content="https://www.bv-prod.fr/assets/og-image.jpg">
+<meta property="og:url" content="https://www.bv-prod.fr/contact">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .contact-hero h1 { font-size:clamp(46px,6vw,86px); line-height:1; }
+  .contact-watermark { font-size:250px; right:-10px; bottom:-30px; }
+  .contact-shimmer { background:linear-gradient(90deg,#c27dff,#a8b890,#c27dff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:bvShimmer 4s ease-in-out infinite; }
+
+  .coord-section { padding:88px 64px; background:#EDECEE; }
+  .coord-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:36px; }
+  .coord-card { padding:30px; border-radius:24px; }
+  .coord-label { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-light); margin-bottom:10px; }
+  .coord-value { font-size:19px; color:var(--text-dark); font-weight:700; text-decoration:none; display:block; }
+  .coord-social { display:flex; gap:10px; margin-top:6px; }
+  .coord-social span { padding:8px 16px; border-radius:100px; background:rgba(0,0,0,.05); font-size:13px; font-weight:600; color:var(--text-mid); }
+  .coord-map { border-radius:20px; overflow:hidden; margin-top:16px; border:1px solid rgba(0,0,0,.08); }
+  .coord-map iframe { width:100%; height:220px; border:0; display:block; }
+
+  .contact-form-section { padding:88px 64px; background:linear-gradient(160deg,#2F2F30,#000); }
+  .contact-form-card { max-width:640px; margin:0 auto; }
+  .contact-form-sub { color:var(--text-invert-mid); font-size:14.5px; margin:10px 0 30px; }
+  .contact-form-sub a { color:var(--accent); text-decoration:underline; }
+
+  .faq-section { padding:88px 64px; background:#09090b; }
+  .faq-watermark { font-size:220px; left:20px; top:20px; }
+  .faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:36px; }
+  .faq-card { padding:26px; border-radius:20px; }
+  .faq-q { font-size:16px; color:var(--text-invert); margin-bottom:8px; font-weight:700; }
+  .faq-a { margin:0; font-size:14px; line-height:1.5; color:var(--text-invert-mid); }
+
+  @media (max-width: 768px) {
+    .contact-hero { padding:120px 20px 56px; }
+    .contact-hero h1 { font-size:32px; }
+    .coord-grid, .faq-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bv-nav-wrap">
+  <nav class="bv-nav">
+    <a href="/" class="bv-nav-brand">
+      <img src="/assets/logo-bvprod.png" alt="BVProd">
+      <span>BVProd</span>
+    </a>
+    <div class="bv-nav-links">
+      <a href="/" class="bv-navlink">Accueil</a>
+      <a href="/realisations" class="bv-navlink">Réalisations</a>
+      <a href="/a-propos" class="bv-navlink">À propos</a>
+      <a href="/services" class="bv-navlink">Services</a>
+      <a href="/contact" class="bv-navlink active">Contact</a>
+    </div>
+    <a href="#contact-form" data-glass-btn="light" class="btn btn-light btn-nav desktop-only">Demander un devis</a>
+    <button type="button" class="bv-nav-burger" data-burger aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+</div>
+
+<div class="mobile-menu-overlay" data-mobile-menu>
+  <div class="mobile-menu-top">
+    <a href="/" class="bv-nav-brand">
+      <img src="/assets/logo-bvprod.png" alt="BVProd" style="filter:invert(1);">
+      <span style="color:#EDECEE;">BVProd</span>
+    </a>
+    <button type="button" class="mobile-menu-close" data-menu-close aria-label="Fermer le menu">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="/">Accueil</a>
+    <a href="/realisations">Réalisations</a>
+    <a href="/a-propos">À propos</a>
+    <a href="/services">Services</a>
+    <a href="/contact" class="active">Contact</a>
+    <a href="/mentions-legales">Mentions légales</a>
+  </div>
+  <div class="mobile-menu-cta">
+    <a href="#contact-form" data-glass-btn="dark" class="btn btn-dark btn-block">Demander un devis</a>
+  </div>
+</div>
+
+<main>
+  <!-- ---------- HERO ---------- -->
+  <section class="hero-dark contact-hero">
+    <div class="glow" style="top:-60px;left:-60px;width:520px;height:520px;background:radial-gradient(circle,rgba(194,125,255,.35),rgba(194,125,255,0) 70%);animation:bvBreathe 9s ease-in-out infinite;"></div>
+    <div class="watermark watermark-dark contact-watermark">CONTACT</div>
+    <div class="section-inner" style="position:relative;z-index:2;">
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        <span class="badge-label">Contact · BVProd</span>
+      </div>
+      <h1>Discutons de<br><span class="contact-shimmer">votre projet.</span></h1>
+      <p class="lead">Un site à créer, une idée à cadrer, une simple question — je réponds toujours avec plaisir. Racontez-moi ce que vous avez en tête.</p>
+    </div>
+  </section>
+
+  <!-- ---------- COORDONNÉES ---------- -->
+  <section class="coord-section">
+    <div class="section-inner">
+      <div class="eyebrow">Restons en contact</div>
+      <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-dark);">Toutes mes<br>coordonnées</h2>
+
+      <div class="coord-grid">
+        <div class="coord-card glass-card-soft">
+          <div class="coord-label">E-mail</div>
+          <a href="mailto:BVProd.wix@gmail.com" class="coord-value">BVProd.wix@gmail.com</a>
+          <div class="coord-label" style="margin-top:20px;">Téléphone</div>
+          <a href="tel:+33766284694" class="coord-value">+33 7 66 28 46 94</a>
+          <div class="coord-label" style="margin-top:20px;">Réseaux</div>
+          <div class="coord-social">
+            <span>Instagram</span>
+            <span>LinkedIn</span>
+          </div>
+        </div>
+        <div class="coord-card glass-card-soft">
+          <div class="coord-label">Disponibilité</div>
+          <p style="margin:0 0 20px;font-size:15px;line-height:1.5;color:var(--text-mid);">Réponse sous 24h, du lundi au vendredi. Un premier échange de 20 min pour cadrer votre projet, sans engagement.</p>
+          <div class="coord-label">Zone d'intervention</div>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--text-mid);">Basé à Paris — déplacements dans toute la France pour tournages et shootings, projets web et visio partout ailleurs.</p>
+          <div class="coord-map">
+            <iframe src="https://www.google.com/maps/search/?api=1&query=22+rue+Alexandre+Dumas+75011+Paris&output=embed" title="BVProd — Paris" loading="lazy"></iframe>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=22+rue+Alexandre+Dumas+75011+Paris" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:13px;color:var(--text-dark);text-decoration:underline;">Ouvrir dans Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- FORMULAIRE ---------- -->
+  <section class="contact-form-section" id="contact-form">
+    <div class="contact-form-card">
+      <h2 style="font-size:clamp(28px,3.2vw,40px);color:var(--text-invert);text-align:center;">Envoyez-moi un message</h2>
+      <p class="contact-form-sub" style="text-align:center;">Pour une demande de devis détaillée, préférez le <a href="/services#devis-target">formulaire dédié</a>. Pour toute autre question, écrivez-moi ici.</p>
+
+      <form class="glass-card-dark form-card" data-contact-form action="https://formspree.io/f/VOTRE_ID" method="POST" novalidate>
+        <div class="form-grid" style="grid-template-columns:1fr;">
+          <div class="form-field">
+            <label for="c-nom">Nom *</label>
+            <input type="text" id="c-nom" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-field">
+            <label for="c-email">E-mail *</label>
+            <input type="email" id="c-email" name="email" placeholder="vous@exemple.com" required>
+          </div>
+          <div class="form-field">
+            <label for="c-message">Message *</label>
+            <textarea id="c-message" name="message" rows="4" placeholder="Comment puis-je vous aider ?" required></textarea>
+          </div>
+        </div>
+        <button type="submit" data-glass-btn="light" class="btn btn-light" style="margin-top:24px;">Envoyer le message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ---------- FAQ ---------- -->
+  <section class="faq-section">
+    <div class="watermark watermark-dark faq-watermark">FAQ</div>
+    <div class="section-inner">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-invert);">Avant de m'écrire</h2>
+
+      <div class="faq-grid" data-anim="cascade">
+        <div class="faq-card glass-card-dark">
+          <div class="faq-q">Sous combien de temps ai-je une réponse ?</div>
+          <p class="faq-a">Sous 24h en semaine, 48h maximum le week-end.</p>
+        </div>
+        <div class="faq-card glass-card-dark">
+          <div class="faq-q">Travaillez-vous à distance ?</div>
+          <p class="faq-a">Oui, la majorité de mes projets se pilotent en visio et à distance, où que vous soyez.</p>
+        </div>
+        <div class="faq-card glass-card-dark">
+          <div class="faq-q">Puis-je échanger avant de m'engager ?</div>
+          <p class="faq-a">Bien sûr — un premier appel de 20 minutes pour cadrer votre projet, sans aucun engagement.</p>
+        </div>
+        <div class="faq-card glass-card-dark">
+          <div class="faq-q">Comment se passe le paiement ?</div>
+          <p class="faq-a">Un acompte de 30 % à la signature, le solde à la livraison du projet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="section-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <img src="/assets/logo-bvprod.png" alt="BVProd">
+          <span>BVProd</span>
+        </div>
+        <p>Nous contacter pour exprimer notre créativité ensemble.</p>
+      </div>
+      <div class="footer-pages">
+        <div class="footer-pages-title">Pages</div>
+        <div class="footer-pages-list">
+          <a href="/" class="bv-footlink">Accueil</a>
+          <a href="/realisations" class="bv-footlink">Réalisations</a>
+          <a href="/a-propos" class="bv-footlink">À propos</a>
+          <a href="/services" class="bv-footlink">Services</a>
+          <a href="/contact" class="bv-footlink active">Contact</a>
+        </div>
+      </div>
+      <div class="footer-news">
+        <div class="footer-news-title">Newsletter</div>
+        <form class="footer-news-form" data-newsletter-form novalidate>
+          <input type="email" placeholder="Votre e-mail" aria-label="Votre e-mail pour la newsletter" required>
+          <button type="submit" data-glass-btn="purple" class="btn btn-purple">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BVProd — Paris</span>
+      <a href="/mentions-legales">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

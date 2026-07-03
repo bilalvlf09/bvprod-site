@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BVProd — Création de sites Wix &amp; Wix Studio à Paris</title>
+<meta name="description" content="Agence Wix Studio à Paris. Sites sur-mesure, motion design et photographie, pensés pour convertir. Devis à partir de 350€.">
+<link rel="canonical" href="https://www.bv-prod.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="BVProd">
+<meta property="og:title" content="BVProd — Création de sites Wix &amp; Wix Studio à Paris">
+<meta property="og:description" content="Sites sur-mesure, motion design et photographie, pensés pour convertir. Devis à partir de 350€.">
+<meta property="og:image" content="https://www.bv-prod.fr/assets/og-image.jpg">
+<meta property="og:url" content="https://www.bv-prod.fr/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"BVProd","url":"https://www.bv-prod.fr/","image":"https://www.bv-prod.fr/assets/og-image.jpg","priceRange":"350€+","areaServed":"FR","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .home-hero-inner { position:relative; z-index:2; display:flex; align-items:center; gap:48px; max-width:1440px; margin:0 auto; }
+  .home-hero-card { flex:1; max-width:680px; padding:46px 46px 42px; }
+  .home-price { display:inline-flex; align-items:baseline; gap:10px; margin:26px 0 30px; padding:12px 20px; border-radius:16px; background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.7); }
+  .home-price-label { font-size:14px; color:#8E8E8F; font-weight:600; }
+  .home-price-value { font-family:var(--font-display); font-size:30px; color:var(--text-dark); }
+  .home-hero-actions { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .home-hero-phone-wrap { flex:none; width:min(340px,34vw); position:relative; z-index:10; }
+  .home-hero-cradle { position:absolute; inset:-26px; border-radius:46px; background:linear-gradient(140deg,rgba(194,125,255,.4),rgba(190,189,190,.12)); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.5); box-shadow:0 20px 60px rgba(47,47,48,.18); transform:rotate(4deg); }
+  .home-hero-phone { position:relative; z-index:2; width:88%; margin:0 auto; animation:bvFadeRight .9s .45s ease both, bvFloat 7s 1.35s ease-in-out infinite; }
+  .home-hero-phone img { filter:drop-shadow(0 24px 48px rgba(47,47,48,.30)); display:block; }
+  .home-watermark { left:48px; bottom:-26px; font-size:230px; }
+
+  .portfolio-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:46px; gap:24px; flex-wrap:wrap; }
+  .portfolio-title { font-size:clamp(32px,3.8vw,56px); line-height:.98; color:var(--text-dark); }
+  .portfolio-strip { display:flex; gap:26px; justify-content:center; flex-wrap:wrap; }
+  .portfolio-card { width:228px; }
+  .portfolio-card img { width:100%; display:block; border-radius:30px; filter:drop-shadow(0 20px 40px rgba(47,47,48,.22)); }
+  .portfolio-card-name { text-align:center; margin-top:16px; font-size:13px; font-weight:700; color:var(--text-dark); }
+  .portfolio-card-sub { text-align:center; font-size:11px; color:var(--text-light); }
+
+  .motion-section { background:#000; overflow:hidden; }
+  .motion-header { padding:80px 64px 44px; display:flex; align-items:flex-end; justify-content:space-between; max-width:1440px; margin:0 auto; gap:20px; flex-wrap:wrap; }
+  .motion-title { font-size:clamp(30px,3.6vw,52px); line-height:.96; color:var(--text-invert); }
+  .motion-progress-wrap { margin:0 64px 20px; max-width:1440px; margin-left:auto; margin-right:auto; }
+  .motion-strip { padding:0 64px 72px; max-width:1440px; margin:0 auto; }
+
+  .pilier-icon { width:46px; height:46px; border-radius:13px; background:linear-gradient(150deg,#2F2F30,#000); display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
+  .pilier-title { font-size:24px; color:var(--text-dark); margin-bottom:6px; }
+  .pilier-kicker { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); filter:brightness(.7); margin-bottom:14px; }
+  .pilier-desc { margin:0; font-size:14px; line-height:1.5; color:var(--text-mid); }
+
+  .rep-card-a { grid-column:span 2; padding:30px; }
+  .rep-card { padding:26px; }
+  .rep-title-lg { font-size:30px; color:var(--text-invert); margin-bottom:8px; }
+  .rep-title-md { font-size:20px; color:var(--accent); margin-bottom:6px; }
+  .rep-title-flat { font-size:18px; color:var(--text-invert); line-height:1.1; }
+  .rep-desc { margin:0; font-size:13px; color:var(--text-invert-mid); line-height:1.45; }
+
+  .declaration-quote { font-size:clamp(24px,3.4vw,40px); line-height:1.18; letter-spacing:-.015em; color:var(--text-dark); margin:0; }
+  .declaration-sub { margin:18px 0 0; font-size:19px; color:var(--text-mid); font-weight:600; }
+
+  .cta-final-card { text-align:center; padding:52px 64px; display:inline-block; }
+  .cta-final-title { font-size:clamp(32px,4vw,58px); color:var(--text-invert); }
+  .cta-final-sub { margin:16px 0 30px; font-size:18px; color:var(--text-invert-mid); }
+
+  @media (max-width: 768px) {
+    .home-hero-inner { flex-direction:column; }
+    .home-hero-card { max-width:100%; padding:26px 22px 28px; }
+    .home-hero-phone-wrap { width:210px; margin:20px auto 0; }
+    .home-hero-cradle { display:none; }
+    .home-hero-phone { animation:bvFloatMob 6s ease-in-out infinite; }
+    .home-watermark { font-size:96px; left:14px; bottom:auto; top:240px; }
+    .portfolio-strip { flex-wrap:nowrap; overflow-x:auto; margin:0 -20px; padding:0 20px 4px; }
+    .portfolio-card { flex:none; width:150px; }
+    .rep-card-a { grid-column:1 / -1; }
+    .cta-final-card { padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bv-nav-wrap">
+  <nav class="bv-nav">
+    <a href="/" class="bv-nav-brand">
+      <img src="/assets/logo-bvprod.png" alt="BVProd">
+      <span>BVProd</span>
+    </a>
+    <div class="bv-nav-links">
+      <a href="/" class="bv-navlink active">Accueil</a>
+      <a href="/realisations" class="bv-navlink">Réalisations</a>
+      <a href="/a-propos" class="bv-navlink">À propos</a>
+      <a href="/services" class="bv-navlink">Services</a>
+      <a href="/contact" class="bv-navlink">Contact</a>
+    </div>
+    <a href="/services#devis-target" data-glass-btn="light" class="btn btn-light btn-nav desktop-only">Demander un devis</a>
+    <button type="button" class="bv-nav-burger" data-burger aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+</div>
+
+<div class="mobile-menu-overlay" data-mobile-menu>
+  <div class="mobile-menu-top">
+    <a href="/" class="bv-nav-brand">
+      <img src="/assets/logo-bvprod.png" alt="BVProd" style="filter:invert(1);">
+      <span style="color:#EDECEE;">BVProd</span>
+    </a>
+    <button type="button" class="mobile-menu-close" data-menu-close aria-label="Fermer le menu">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="/" class="active">Accueil</a>
+    <a href="/realisations">Réalisations</a>
+    <a href="/a-propos">À propos</a>
+    <a href="/services">Services</a>
+    <a href="/contact">Contact</a>
+    <a href="/mentions-legales">Mentions légales</a>
+  </div>
+  <div class="mobile-menu-cta">
+    <a href="/services#devis-target" data-glass-btn="dark" class="btn btn-dark btn-block">Demander un devis</a>
+  </div>
+</div>
+
+<main>
+  <!-- ---------- HERO ---------- -->
+  <section class="hero-light">
+    <div class="glow" style="top:-60px;left:-40px;width:520px;height:520px;background:radial-gradient(circle,rgba(194,125,255,.85),rgba(194,125,255,0) 70%);animation:bvBreathe 9s ease-in-out infinite;"></div>
+    <div class="glow" style="top:120px;right:-80px;width:560px;height:560px;background:radial-gradient(circle,rgba(143,142,143,.5),rgba(143,142,143,0) 70%);animation:bvBreathe 11s 1.8s ease-in-out infinite;"></div>
+    <div class="watermark watermark-light home-watermark">BVPROD</div>
+
+    <div class="home-hero-inner">
+      <div class="home-hero-card glass-card" style="animation:bvFadeUp .9s .25s ease both;">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span class="badge-label">Agence Wix Studio · Paris · Partenaire Icône</span>
+        </div>
+        <h1>Des sites Wix &amp; Wix Studio qui font la différence</h1>
+        <p class="lead" style="margin:22px 0 0;font-size:18px;line-height:1.5;color:var(--text-mid);max-width:460px;">Sites sur-mesure, motion design et photographie. De la stratégie au pixel pensés pour convertir.</p>
+        <div class="home-price">
+          <span class="home-price-label">Site internet à partir de</span>
+          <span class="home-price-value">350€</span>
+        </div>
+        <div class="home-hero-actions">
+          <a href="/services#devis-target" data-glass-btn="light" class="btn btn-light">Demander un devis</a>
+          <a href="/realisations" data-glass-btn="secondary" class="btn btn-secondary">Voir les réalisations →</a>
+        </div>
+      </div>
+
+      <div class="home-hero-phone-wrap">
+        <div class="home-hero-cradle"></div>
+        <div class="home-hero-phone">
+          <img src="/assets/studio16-phone.png" alt="Studio 16">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PORTFOLIO ---------- -->
+  <section class="section" style="background:linear-gradient(180deg,#EDECEE,#e4e3e6);">
+    <div class="glow" style="top:40px;left:50%;transform:translateX(-50%);width:760px;height:300px;background:radial-gradient(circle,rgba(194,125,255,.6),rgba(194,125,255,0) 70%);"></div>
+    <div class="section-inner">
+      <div class="portfolio-header">
+        <div>
+          <div class="eyebrow">Portfolio</div>
+          <h2 class="portfolio-title">Créer du sens<br>avec style</h2>
+        </div>
+        <a href="/realisations" data-glass-btn="secondary" class="btn btn-secondary">Voir tous les projets →</a>
+      </div>
+      <div class="portfolio-strip" data-anim="cascade">
+        <div class="portfolio-card" style="transform:rotate(-3deg);">
+          <img src="/assets/studio16-phone.png" alt="Studio 16">
+          <div class="portfolio-card-name">Studio 16</div>
+          <div class="portfolio-card-sub">Esthétique · Lyon</div>
+        </div>
+        <div class="portfolio-card" style="transform:rotate(2deg);margin-top:22px;">
+          <img src="/assets/polesante-phone.png" alt="Pôle Santé">
+          <div class="portfolio-card-name">Pôle Santé</div>
+          <div class="portfolio-card-sub">Maison de Santé · Paris 11</div>
+        </div>
+        <div class="portfolio-card" style="transform:rotate(-2deg);">
+          <img src="/assets/coupdesoleil-phone.png" alt="Coup de Soleil">
+          <div class="portfolio-card-name">Coup de Soleil</div>
+          <div class="portfolio-card-sub">Portissol</div>
+        </div>
+        <div class="portfolio-card" style="transform:rotate(3deg);margin-top:22px;">
+          <img src="/assets/omnisoin-phone.png" alt="OmniSoin">
+          <div class="portfolio-card-name">OmniSoin</div>
+          <div class="portfolio-card-sub">Santé connectée</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- MOTION DESIGN ---------- -->
+  <section class="motion-section">
+    <div class="motion-header">
+      <div>
+        <div class="eyebrow" style="color:var(--text-mid);">Motion Design</div>
+        <h2 class="motion-title">Animations qui<br><span style="color:var(--accent);">marquent les esprits.</span></h2>
+      </div>
+      <button id="motion-scroll-btn" type="button" aria-label="Faites défiler les animations" class="scroll-arrow" style="width:auto;border-radius:100px;gap:10px;padding:12px 22px;">
+        <span style="font-size:13px;color:var(--text-invert);">Faites défiler</span>
+        <span style="font-size:16px;color:var(--accent);">→</span>
+      </button>
+    </div>
+    <div class="scroll-progress motion-progress-wrap">
+      <div class="scroll-progress-bar" data-scroll-progress="motion-strip"></div>
+    </div>
+    <div id="motion-strip" data-motion-strip class="scroll-strip motion-strip">
+      <div class="video-card">
+        <video loop muted playsinline preload="metadata"><source src="/assets/motion-assd.mp4" type="video/mp4"></video>
+        <div class="video-card-meta">
+          <div>
+            <div style="font-family:var(--font-display);font-size:16px;color:var(--text-invert);">ASSD Pacshot</div>
+            <div style="font-size:12px;color:var(--text-mid);margin-top:4px;">Animation logo · After Effects</div>
+          </div>
+          <div class="video-card-num">01</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <video loop muted playsinline preload="metadata"><source src="/assets/motion-jiji.mp4" type="video/mp4"></video>
+        <div class="video-card-meta">
+          <div>
+            <div style="font-family:var(--font-display);font-size:16px;color:var(--text-invert);">Pacshot Jiji</div>
+            <div style="font-size:12px;color:var(--text-mid);margin-top:4px;">Identité animée · After Effects</div>
+          </div>
+          <div class="video-card-num">02</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <video loop muted playsinline preload="metadata"><source src="/assets/motion-jade.mp4" type="video/mp4"></video>
+        <div class="video-card-meta">
+          <div>
+            <div style="font-family:var(--font-display);font-size:16px;color:var(--text-invert);">Jade Motion</div>
+            <div style="font-size:12px;color:var(--text-mid);margin-top:4px;">Animation · After Effects</div>
+          </div>
+          <div class="video-card-num">03</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- OSTINATO RIGORE ---------- -->
+  <section class="section" style="padding:110px 64px;background:linear-gradient(160deg,#2f2f3097,#000);text-align:center;">
+    <div class="glow" style="top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:340px;background:radial-gradient(circle,rgba(194,125,255,.16),rgba(194,125,255,0) 70%);"></div>
+    <div style="position:relative;font-family:var(--font-display);font-size:clamp(44px,7vw,96px);letter-spacing:.02em;color:#27272a;">OSTINATO RIGORE</div>
+    <div class="glass-card-dark" style="position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:12px 24px;border-radius:100px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span>
+      <span style="font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-invert-mid);font-weight:600;">Léonard de Vinci — rigueur obstinée</span>
+    </div>
+  </section>
+
+  <!-- ---------- 4 PILIERS ---------- -->
+  <section class="section" style="background:linear-gradient(180deg,#e4e3e6,#EDECEE);">
+    <div class="glow" style="bottom:-60px;right:-40px;width:520px;height:520px;background:radial-gradient(circle,rgba(194,125,255,.55),rgba(194,125,255,0) 70%);"></div>
+    <div class="section-inner">
+      <div style="margin-bottom:44px;">
+        <div class="eyebrow">Le métier</div>
+        <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-dark);">Quatre piliers, un seul artisan</h2>
+      </div>
+      <div class="grid-cascade cols-4 stack-mobile" data-anim="cascade" data-tilt-grid>
+        <div class="glass-card-soft" style="padding:32px 26px;">
+          <div class="pilier-icon" data-tilt-icon><svg width="20" height="20" viewBox="0 0 16 16" fill="#c27dff"><path d="M5.2 3.5v9l7.6-4.5Z"></path></svg></div>
+          <div class="pilier-title">Vidéo</div>
+          <div class="pilier-kicker">5+ ans d'expérience</div>
+          <p class="pilier-desc">Tournage, montage et color-grading cinématographiques pour des marques qui marquent.</p>
+        </div>
+        <div class="glass-card-soft" style="padding:32px 26px;">
+          <div class="pilier-icon" data-tilt-icon><svg width="20" height="20" viewBox="0 0 16 16" fill="#c27dff"><path d="M8 2 14 8 8 14 2 8Z"></path></svg></div>
+          <div class="pilier-title">Wix</div>
+          <div class="pilier-kicker">Spécialiste Wix Studio</div>
+          <p class="pilier-desc">Partenaire Icône certifié. Des sites rapides, responsive et faciles à éditer.</p>
+        </div>
+        <div class="glass-card-soft" style="padding:32px 26px;">
+          <div class="pilier-icon" data-tilt-icon><svg width="20" height="20" viewBox="0 0 16 16" fill="#c27dff"><path d="M8 1.5 9.7 6.3 14.5 8 9.7 9.7 8 14.5 6.3 9.7 1.5 8 6.3 6.3Z"></path></svg></div>
+          <div class="pilier-title">Motion Design</div>
+          <div class="pilier-kicker">Formé à l'IESA Paris</div>
+          <p class="pilier-desc">Animations et micro-interactions qui donnent vie et rythme à chaque écran.</p>
+        </div>
+        <div class="glass-card-soft" style="padding:32px 26px;">
+          <div class="pilier-icon" data-tilt-icon><svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#c27dff" stroke-width="1.5"><circle cx="8" cy="8" r="5.5"></circle><circle cx="8" cy="8" r="2.4" fill="#c27dff" stroke="none"></circle></svg></div>
+          <div class="pilier-title">Photographie</div>
+          <div class="pilier-kicker">Studios parisiens</div>
+          <p class="pilier-desc">Shootings produit et portrait pour de grandes marques, lumière maîtrisée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- POURQUOI ILS ME FONT CONFIANCE ---------- -->
+  <section class="section" style="background:linear-gradient(160deg,#2F2F30,#000);">
+    <div class="glow" style="top:-40px;left:30%;width:560px;height:420px;background:radial-gradient(circle,rgba(190,189,190,.18),rgba(190,189,190,0) 70%);"></div>
+    <div class="section-inner">
+      <div style="margin-bottom:42px;">
+        <div class="eyebrow">Réputation</div>
+        <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-invert);">Pourquoi ils me font confiance</h2>
+      </div>
+      <div class="grid-cascade cols-4" data-anim="cascade" style="gap:18px;">
+        <div class="glass-card-dark-accent rep-card-a">
+          <div class="rep-title-lg">UX Sniper 🎯</div>
+          <p class="rep-desc">Chaque clic visé, rien au hasard. Des parcours qui touchent leur cible du premier coup.</p>
+        </div>
+        <div class="glass-card-dark rep-card">
+          <div class="rep-title-md">No-code Diplomat</div>
+          <p class="rep-desc">Le pont entre votre vision et Wix Studio.</p>
+        </div>
+        <div class="glass-card-dark rep-card">
+          <div class="rep-title-md">Refontologue</div>
+          <p class="rep-desc">L'art de refondre sans tout casser.</p>
+        </div>
+        <div class="glass-card-dark rep-card">
+          <div class="rep-title-flat">Lisible par Mamie, validé par Google</div>
+        </div>
+        <div class="glass-card-dark rep-card">
+          <div class="rep-title-md">UX Lover ♥</div>
+          <p class="rep-desc">L'utilisateur d'abord, toujours.</p>
+        </div>
+        <div class="glass-card-dark rep-card">
+          <div class="rep-title-flat">Le Valentin des utilisateurs</div>
+        </div>
+        <div class="glass-card-dark-accent rep-card">
+          <div class="rep-title-lg" style="font-size:20px;">Zéro dark pattern</div>
+          <p class="rep-desc">Honnête par design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- DÉCLARATION ---------- -->
+  <section class="section" style="background:#EDECEE;text-align:center;">
+    <div class="glow" style="top:50%;left:50%;transform:translate(-50%,-50%);width:760px;height:300px;background:radial-gradient(circle,rgba(194,125,255,.6),rgba(194,125,255,0) 70%);"></div>
+    <div style="position:relative;max-width:980px;margin:0 auto;">
+      <div class="glass-card" data-anim="reveal" style="display:inline-block;padding:40px 48px;">
+        <p class="declaration-quote">Je transforme les pixels en émotions, les clics en connexions.</p>
+        <p class="declaration-sub">Mon style ? <span style="color:var(--text-dark);">Cinématographique, vivant, audacieux.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- UNE ANNÉE DE CROISSANCE ---------- -->
+  <section class="section" style="background:linear-gradient(180deg,#e4e3e6,#dededf);">
+    <div class="section-inner">
+      <div style="margin-bottom:44px;text-align:center;">
+        <div class="eyebrow">Résultats</div>
+        <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-dark);">Une année de croissance</h2>
+      </div>
+      <div class="grid-cascade cols-4" data-anim="cascade">
+        <div class="stat-card" style="background:linear-gradient(150deg,rgba(194,125,255,.34),rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.6);">
+          <div class="stat-num" data-stat-to="45" data-stat-prefix="+" data-stat-suffix="%">+45%</div>
+          <div class="stat-label">Croissance clients</div>
+        </div>
+        <div class="stat-card glass-card-soft">
+          <div class="stat-num" data-stat-to="112" data-stat-suffix="k+">112k+</div>
+          <div class="stat-label">Utilisateurs impactés</div>
+        </div>
+        <div class="stat-card glass-card-soft">
+          <div class="stat-num" data-stat-to="29" data-stat-prefix="+" data-stat-suffix="%">+29%</div>
+          <div class="stat-label">Hausse du CA</div>
+        </div>
+        <div class="stat-card" style="background:linear-gradient(150deg,rgba(194,125,255,.34),rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.6);">
+          <div class="stat-num" data-stat-to="39" data-stat-prefix="+" data-stat-suffix="%">+39%</div>
+          <div class="stat-label">Accélération ventes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CTA FINAL ---------- -->
+  <section class="section" style="background:linear-gradient(160deg,#2F2F30,#000);text-align:center;">
+    <div class="glow" style="top:50%;left:50%;transform:translate(-50%,-50%);width:820px;height:360px;background:radial-gradient(circle,rgba(194,125,255,.18),rgba(194,125,255,0) 70%);"></div>
+    <div class="glass-card-dark-accent cta-final-card" data-anim="reveal">
+      <h2 class="cta-final-title">On discute ?</h2>
+      <p class="cta-final-sub">Un projet, une idée, un café virtuel. Parlons-en.</p>
+      <a href="/services#devis-target" data-glass-btn="dark" class="btn btn-dark">Demander un devis</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="section-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <img src="/assets/logo-bvprod.png" alt="BVProd">
+          <span>BVProd</span>
+        </div>
+        <p>Nous contacter pour exprimer notre créativité ensemble.</p>
+      </div>
+      <div class="footer-pages">
+        <div class="footer-pages-title">Pages</div>
+        <div class="footer-pages-list">
+          <a href="/" class="bv-footlink active">Accueil</a>
+          <a href="/realisations" class="bv-footlink">Réalisations</a>
+          <a href="/a-propos" class="bv-footlink">À propos</a>
+          <a href="/services" class="bv-footlink">Services</a>
+          <a href="/contact" class="bv-footlink">Contact</a>
+        </div>
+      </div>
+      <div class="footer-news">
+        <div class="footer-news-title">Newsletter</div>
+        <form class="footer-news-form" data-newsletter-form novalidate>
+          <input type="email" placeholder="Votre e-mail" aria-label="Votre e-mail pour la newsletter" required>
+          <button type="submit" data-glass-btn="purple" class="btn btn-purple">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BVProd — Paris</span>
+      <a href="/mentions-legales">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

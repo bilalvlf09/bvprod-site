@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Création de sites Wix Studio | BVProd</title>
+<meta name="description" content="Design, performance et stratégie : découvrez les services de BVProd pour un site qui attire, convertit et inspire confiance.">
+<link rel="canonical" href="https://www.bv-prod.fr/services">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="BVProd">
+<meta property="og:title" content="Services — Création de sites Wix Studio | BVProd">
+<meta property="og:description" content="Design, performance et stratégie : découvrez les services de BVProd pour un site qui attire, convertit et inspire confiance.">
+<meta property="og:image" content="https://www.bv-prod.fr/assets/og-image.jpg">
+<meta property="og:url" content="https://www.bv-prod.fr/services">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .svc-hero { padding:148px 64px 100px; }
+  .svc-hero h1 { font-size:clamp(46px,6vw,86px); line-height:1; }
+  .svc-shimmer { background:linear-gradient(90deg,#c27dff,#a8b890,#c27dff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:bvShimmer 4s ease-in-out infinite; }
+  .svc-watermark { font-size:250px; left:-10px; bottom:-30px; }
+
+  .svc-grid-section { position:relative; padding:88px 64px 88px; background:linear-gradient(180deg,#EDECEE,#e4e3e6); margin-top:-90px; border-radius:40px 40px 0 0; box-shadow:0 -60px 100px -20px rgba(0,0,0,.25); }
+  .svc-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:22px; }
+  .svc-card { padding:30px 26px; border-radius:24px; background:linear-gradient(150deg,rgba(255,255,255,.6),rgba(190,189,190,.12)); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.6); box-shadow:0 14px 40px rgba(47,47,48,.10), inset 0 1px 0 rgba(255,255,255,.6); }
+  .svc-card.featured { background:linear-gradient(150deg,rgba(194,125,255,.28),rgba(255,255,255,.12)); }
+  .svc-card.span-3 { grid-column:span 3; }
+  .svc-card.span-2 { grid-column:span 2; }
+  .svc-icon { width:44px; height:44px; border-radius:13px; background:linear-gradient(150deg,#2F2F30,#000); display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+  .svc-card-title { font-size:21px; color:var(--text-dark); margin-bottom:10px; }
+  .svc-card.featured .svc-card-title { font-size:24px; }
+  .svc-card-desc { margin:0 0 18px; font-size:13.5px; line-height:1.5; color:var(--text-mid); }
+  .svc-card-foot { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .svc-price { font-family:var(--font-display); font-size:15px; color:var(--accent); filter:brightness(.75); }
+  .svc-cta { font-size:13px; font-weight:700; color:var(--text-dark); text-decoration:none; }
+
+  .svc-equip-section { position:relative; padding:88px 64px; background:linear-gradient(160deg,#0d0d10,#09090b); }
+  .svc-equip-watermark { font-size:220px; right:20px; bottom:-30px; }
+  .svc-equip-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
+  .svc-equip-card { padding:30px 26px; border-radius:24px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.10); }
+  .svc-equip-card.accent { background:rgba(194,125,255,.16); }
+  .svc-equip-title { font-size:19px; color:var(--text-invert); margin-bottom:10px; }
+  .svc-equip-desc { margin:0; font-size:13.5px; line-height:1.6; color:var(--text-invert-mid); }
+
+  .devis-section { padding:96px 64px; background:linear-gradient(160deg,#2F2F30,#000); }
+  .devis-card { max-width:900px; margin:0 auto; }
+  .devis-header { text-align:center; margin-bottom:36px; }
+  .devis-header p { max-width:640px; margin:14px auto 0; color:var(--text-invert-mid); font-size:16px; line-height:1.5; }
+
+  @media (max-width: 768px) {
+    .svc-hero { padding:120px 20px 56px; }
+    .svc-hero h1 { font-size:32px; }
+    .svc-grid-section { margin-top:0; border-radius:0; box-shadow:none; padding:44px 0 40px; }
+    .svc-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:230px; overflow-x:auto; padding:0 20px 4px; gap:14px; }
+    .svc-card.span-2, .svc-card.span-3 { grid-column:auto; }
+    .svc-equip-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:210px; overflow-x:auto; padding-bottom:4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bv-nav-wrap">
+  <nav class="bv-nav">
+    <a href="/" class="bv-nav-brand">
+      <img src="/assets/logo-bvprod.png" alt="BVProd">
+      <span>BVProd</span>
+    </a>
+    <div class="bv-nav-links">
+      <a href="/" class="bv-navlink">Accueil</a>
+      <a href="/realisations" class="bv-navlink">Réalisations</a>
+      <a href="/a-propos" class="bv-navlink">À propos</a>
+      <a href="/services" class="bv-navlink active">Services</a>
+      <a href="/contact" class="bv-navlink">Contact</a>
+    </div>
+    <a href="#devis-target" data-glass-btn="light" class="btn btn-light btn-nav desktop-only">Demander un devis</a>
+    <button type="button" class="bv-nav-burger" data-burger aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+</div>
+
+<div class="mobile-menu-overlay" data-mobile-menu>
+  <div class="mobile-menu-top">
+    <a href="/" class="bv-nav-brand">
+      <img src="/assets/logo-bvprod.png" alt="BVProd" style="filter:invert(1);">
+      <span style="color:#EDECEE;">BVProd</span>
+    </a>
+    <button type="button" class="mobile-menu-close" data-menu-close aria-label="Fermer le menu">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="/">Accueil</a>
+    <a href="/realisations">Réalisations</a>
+    <a href="/a-propos">À propos</a>
+    <a href="/services" class="active">Services</a>
+    <a href="/contact">Contact</a>
+    <a href="/mentions-legales">Mentions légales</a>
+  </div>
+  <div class="mobile-menu-cta">
+    <a href="#devis-target" data-glass-btn="dark" class="btn btn-dark btn-block">Demander un devis</a>
+  </div>
+</div>
+
+<main>
+  <!-- ---------- HERO ---------- -->
+  <section class="hero-dark svc-hero">
+    <div class="glow" style="top:-60px;left:-60px;width:520px;height:520px;background:radial-gradient(circle,rgba(194,125,255,.35),rgba(194,125,255,0) 70%);animation:bvBreathe 9s ease-in-out infinite;" data-parallax="0.12"></div>
+    <div class="glow" style="bottom:-80px;right:-60px;width:480px;height:480px;background:radial-gradient(circle,rgba(143,142,143,.25),rgba(143,142,143,0) 70%);animation:bvBreathe 11s 1.8s ease-in-out infinite;" data-parallax="0.08"></div>
+    <div class="watermark watermark-dark svc-watermark" data-parallax="0.18">SERVICES</div>
+    <div class="section-inner" style="position:relative;z-index:2;">
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        <span class="badge-label">Services · BVProd</span>
+      </div>
+      <h1>Créez, optimisez,<br><span class="svc-shimmer">rayonnez.</span></h1>
+      <p class="lead" style="max-width:640px;">Chez BVProd, chaque projet est une création unique. J'allie design, performance et stratégie pour construire des sites qui attirent, convertissent et inspirent confiance, du concept à la mise en ligne, en passant par le SEO, la photo, la vidéo et la communication digitale.</p>
+    </div>
+  </section>
+
+  <!-- ---------- 9 SERVICES ---------- -->
+  <section class="svc-grid-section">
+    <div class="section-inner">
+      <div class="eyebrow">Le métier</div>
+      <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-dark);margin-bottom:44px;">Neuf savoir-faire,<br>un seul artisan</h2>
+
+      <div class="svc-grid" data-anim="cascade">
+        <div class="svc-card featured span-3">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="#c27dff"><rect x="2" y="2" width="12" height="12" rx="2"></rect></svg></div>
+          <div class="svc-card-title">Création &amp; refonte de site web</div>
+          <p class="svc-card-desc">Site vitrine, e-commerce ou portfolio sur Wix Studio — design sur-mesure et navigation fluide.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 350 €</span><a href="#devis-target" class="svc-cta">Demander un devis →</a></div>
+        </div>
+        <div class="svc-card span-3">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#c27dff" stroke-width="1.4"><path d="M2 8h12M8 2v12"></path></svg></div>
+          <div class="svc-card-title">Référencement naturel (SEO)</div>
+          <p class="svc-card-desc">Audit complet, optimisation technique et stratégie de mots-clés pour gagner en visibilité durable.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 400 €</span><a href="#devis-target" class="svc-cta">Demander un devis →</a></div>
+        </div>
+        <div class="svc-card span-2">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#c27dff" stroke-width="1.4"><circle cx="8" cy="8" r="5.5"></circle><circle cx="8" cy="8" r="1.6" fill="#c27dff"></circle></svg></div>
+          <div class="svc-card-title">Google Ads (SEA)</div>
+          <p class="svc-card-desc">Configuration, suivi et optimisation de vos campagnes Performance Max.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 400 €</span><a href="#devis-target" class="svc-cta">Devis →</a></div>
+        </div>
+        <div class="svc-card span-2">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="#c27dff"><path d="M8 1.5 9.7 6.3 14.5 8 9.7 9.7 8 14.5 6.3 9.7 1.5 8 6.3 6.3Z"></path></svg></div>
+          <div class="svc-card-title">Réseaux sociaux</div>
+          <p class="svc-card-desc">Création de contenu, plan éditorial et sponsorisation pour booster votre visibilité.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 360 €</span><a href="#devis-target" class="svc-cta">Devis →</a></div>
+        </div>
+        <div class="svc-card span-2">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="#c27dff"><path d="M8 1 15 8 8 15 1 8Z"></path></svg></div>
+          <div class="svc-card-title">Identité visuelle &amp; logo</div>
+          <p class="svc-card-desc">Logo, charte graphique et univers cohérent pour votre marque.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 400 €</span><a href="#devis-target" class="svc-cta">Devis →</a></div>
+        </div>
+        <div class="svc-card span-2">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="#c27dff"><path d="M5.2 3.5v9l7.6-4.5Z"></path></svg></div>
+          <div class="svc-card-title">Formation &amp; accompagnement</div>
+          <p class="svc-card-desc">Formation à Wix Studio, SEO et gestion autonome de votre site.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 50 €</span><a href="#devis-target" class="svc-cta">Devis →</a></div>
+        </div>
+        <div class="svc-card span-2">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#c27dff" stroke-width="1.4"><circle cx="6" cy="6" r="3"></circle><circle cx="11" cy="11" r="2"></circle></svg></div>
+          <div class="svc-card-title">Fonctionnalités sur-mesure</div>
+          <p class="svc-card-desc">Espace membre, réservation, devis ou automatisations sur-mesure.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 150 €</span><a href="#devis-target" class="svc-cta">Devis →</a></div>
+        </div>
+        <div class="svc-card span-3">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="#c27dff"><path d="M5.2 3.5v9l7.6-4.5Z"></path></svg></div>
+          <div class="svc-card-title">Production vidéo</div>
+          <p class="svc-card-desc">Captation, montage et habillage visuel, motion design, pour présenter vos produits ou votre entreprise.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 400 €</span><a href="#devis-target" class="svc-cta">Demander un devis →</a></div>
+        </div>
+        <div class="svc-card featured span-3">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#c27dff" stroke-width="1.4"><circle cx="8" cy="8" r="5.5"></circle><circle cx="8" cy="8" r="1.4" fill="#c27dff"></circle></svg></div>
+          <div class="svc-card-title">Photographie professionnelle</div>
+          <p class="svc-card-desc">Portraits, packshots ou reportages pour valoriser votre image et vos créations.</p>
+          <div class="svc-card-foot"><span class="svc-price">À partir de 350 €</span><a href="#devis-target" class="svc-cta">Demander un devis →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- ÉQUIPEMENT ---------- -->
+  <section class="svc-equip-section">
+    <div class="watermark watermark-dark svc-equip-watermark" data-parallax="0.15">STUDIO</div>
+    <div class="section-inner">
+      <div class="eyebrow">Mon équipement</div>
+      <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-invert);">Un matériel à la pointe<br>de la tendance du moment</h2>
+      <p style="max-width:380px;color:var(--text-invert-mid);font-size:15px;line-height:1.6;margin-top:16px;">Chaque tournage, shooting ou montage s'appuie sur un équipement professionnel, choisi pour la qualité d'image et la fiabilité sur le terrain.</p>
+
+      <div class="svc-equip-grid" data-anim="cascade" data-tilt-grid>
+        <div class="svc-equip-card accent">
+          <div class="svc-equip-title">Caméras</div>
+          <p class="svc-equip-desc">Lumix S5</p>
+        </div>
+        <div class="svc-equip-card">
+          <div class="svc-equip-title">Objectifs &amp; accessoires</div>
+          <p class="svc-equip-desc">Lumix S 24–105 mm f4.0<br>DJI RSC 2 Pro Combo · DJI Ronin<br>DJI Mini 2</p>
+        </div>
+        <div class="svc-equip-card">
+          <div class="svc-equip-title">Postes de travail</div>
+          <p class="svc-equip-desc">MacBook Pro 16" 2021<br>Mac Pro 2014<br>Tablette graphique Wacom</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#devis-target" data-glass-btn="secondary" class="btn btn-secondary">Discuter de mon projet →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- DEVIS ---------- -->
+  <section class="devis-section" id="devis-target">
+    <div class="devis-card">
+      <div class="devis-header">
+        <div class="eyebrow">Passons à l'action</div>
+        <h2 style="font-size:clamp(30px,3.6vw,52px);color:var(--text-invert);">Obtenir un devis</h2>
+        <p>Création de site, SEO, photo ou stratégie digitale : décrivez votre projet, je reviens vers vous sous 24h avec une estimation personnalisée et adaptée à vos besoins.</p>
+      </div>
+
+      <form class="glass-card-dark form-card" data-contact-form action="https://formspree.io/f/VOTRE_ID" method="POST" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="devis-prenom">Prénom *</label>
+            <input type="text" id="devis-prenom" name="prenom" placeholder="Votre prénom" required>
+          </div>
+          <div class="form-field">
+            <label for="devis-nom">Nom de famille *</label>
+            <input type="text" id="devis-nom" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-field">
+            <label for="devis-email">E-mail *</label>
+            <input type="email" id="devis-email" name="email" placeholder="vous@exemple.com" required>
+          </div>
+          <div class="form-field">
+            <label for="devis-tel">Téléphone *</label>
+            <input type="tel" id="devis-tel" name="telephone" placeholder="+33 6 00 00 00 00" required>
+          </div>
+          <div class="form-field">
+            <label for="devis-entreprise">Entreprise (optionnel)</label>
+            <input type="text" id="devis-entreprise" name="entreprise" placeholder="Nom de votre entreprise">
+          </div>
+          <div class="form-field">
+            <label for="devis-prestation">Type de prestation</label>
+            <select id="devis-prestation" name="type_prestation">
+              <option>Création / refonte de site</option>
+              <option>Référencement naturel (SEO)</option>
+              <option>Google Ads (SEA)</option>
+              <option>Réseaux sociaux</option>
+              <option>Identité visuelle</option>
+              <option>Formation</option>
+              <option>Fonctionnalités sur-mesure</option>
+              <option>Production vidéo</option>
+              <option>Photographie</option>
+              <option>Autre / plusieurs prestations</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="devis-budget">Budget estimatif</label>
+            <select id="devis-budget" name="budget">
+              <option>Moins de 500 €</option>
+              <option>500 € – 1 500 €</option>
+              <option>1 500 € – 3 000 €</option>
+              <option>3 000 € – 5 000 €</option>
+              <option>Plus de 5 000 €</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="devis-delai">Délai souhaité</label>
+            <select id="devis-delai" name="delai">
+              <option>Dès que possible</option>
+              <option>Sous 2 semaines</option>
+              <option>Sous 1 mois</option>
+              <option>Sous 3 mois</option>
+              <option>Pas de contrainte</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="devis-message">Décrivez-nous votre projet *</label>
+            <textarea id="devis-message" name="message" rows="4" placeholder="Contexte, objectifs, exemples de sites que vous aimez..." required></textarea>
+          </div>
+          <div class="form-field full">
+            <label class="file-drop" for="devis-fichier">+ Joindre un fichier</label>
+            <input type="file" id="devis-fichier" name="fichier" style="display:none;">
+          </div>
+        </div>
+        <button type="submit" data-glass-btn="dark" class="btn btn-dark" style="margin-top:24px;">Recevoir mon estimation</button>
+        <p class="form-note">Formats acceptés : PDF, JPG, PNG (10 Mo max).</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="section-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <img src="/assets/logo-bvprod.png" alt="BVProd">
+          <span>BVProd</span>
+        </div>
+        <p>Nous contacter pour exprimer notre créativité ensemble.</p>
+      </div>
+      <div class="footer-pages">
+        <div class="footer-pages-title">Pages</div>
+        <div class="footer-pages-list">
+          <a href="/" class="bv-footlink">Accueil</a>
+          <a href="/realisations" class="bv-footlink">Réalisations</a>
+          <a href="/a-propos" class="bv-footlink">À propos</a>
+          <a href="/services" class="bv-footlink active">Services</a>
+          <a href="/contact" class="bv-footlink">Contact</a>
+        </div>
+      </div>
+      <div class="footer-news">
+        <div class="footer-news-title">Newsletter</div>
+        <form class="footer-news-form" data-newsletter-form novalidate>
+          <input type="email" placeholder="Votre e-mail" aria-label="Votre e-mail pour la newsletter" required>
+          <button type="submit" data-glass-btn="purple" class="btn btn-purple">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BVProd — Paris</span>
+      <a href="/mentions-legales">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
