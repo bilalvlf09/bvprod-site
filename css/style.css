@@ -360,13 +360,20 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
   .bv-nav .btn-nav.desktop-only { display:none; }
   .bv-nav-burger { display:flex; }
 
-  .grid-cascade.cols-4, .grid-cascade.cols-3 { grid-template-columns:1fr 1fr; }
+  .grid-cascade.cols-4, .grid-cascade.cols-3 { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
   .grid-cascade.cols-4.stack-mobile, .grid-cascade.cols-3.stack-mobile { grid-template-columns:1fr; }
+  .stat-card { padding:22px 14px; }
+  .stat-num { font-size:32px; }
 
   .form-grid { grid-template-columns:1fr; }
 
-  .footer-top { flex-direction:column; }
+  .footer { padding:48px 20px 32px; }
+  .footer-top { flex-direction:column; align-items:center; text-align:center; gap:28px; }
   .footer-pages { display:none; }
+  .footer-brand { max-width:100%; }
+  .footer-brand-row { justify-content:center; }
+  .footer-news { min-width:0; width:100%; }
+  .footer-bottom { flex-direction:column; text-align:center; }
 
   .scroll-strip.mobile-full { margin:0 -20px; padding:0 20px 4px; }
 
