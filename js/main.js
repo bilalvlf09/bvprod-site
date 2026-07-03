@@ -163,7 +163,7 @@ function initGlassButtons() {
     btn.dataset.glassInit = '1';
     btn.style.transition = 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out';
     const restShadow = getComputedStyle(btn).boxShadow;
-    const pressShadow = restShadow + ', inset 0 7px 16px rgba(0,0,0,0.30), inset 0 -1px 0 rgba(255,255,255,0.30)';
+    const pressShadow = (restShadow && restShadow !== 'none' ? restShadow + ', ' : '') + 'inset 0 7px 16px rgba(0,0,0,0.30), inset 0 -1px 0 rgba(255,255,255,0.30)';
     const sheen = document.createElement('span');
     sheen.className = 'bv-sheen';
     btn.insertBefore(sheen, btn.firstChild);
