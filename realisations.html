@@ -38,6 +38,15 @@
   .carousel-arrow:active { transform:translateY(0) scale(.94); }
   .carousel-arrow:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 
+  .btn-devis-strong {
+    background:linear-gradient(160deg,#b26bff 0%,#9333ea 55%,#6d1fc9 100%);
+    color:#fff; font-weight:700;
+    border:1px solid rgba(216,180,255,.6);
+    box-shadow:0 0 0 1px rgba(194,125,255,.25), 0 10px 30px rgba(147,51,234,.45), inset 0 1.5px 0 rgba(255,255,255,.40);
+    text-shadow:0 1px 2px rgba(0,0,0,.25);
+  }
+  .btn-devis-strong:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+
   .featured-strip { padding:0 64px 12px; }
   .featured-card {
     flex:none; width:260px; scroll-snap-align:start; border-radius:20px; overflow:hidden;
@@ -273,7 +282,7 @@
           <h2 class="real-section-title" style="color:var(--text-invert);">Diverses réalisations</h2>
         </div>
         <div style="display:flex;align-items:center;gap:16px;">
-          <a href="/services#devis-target" data-glass-btn="light" class="btn btn-light">Demander un devis →</a>
+          <a href="/services#devis-target" data-glass-btn="light" class="btn btn-devis-strong">Demander un devis →</a>
           <div class="real-arrows">
             <button type="button" class="carousel-arrow" data-scroll-prev="phone-strip" aria-label="Précédent">‹</button>
             <button type="button" class="carousel-arrow" data-scroll-next="phone-strip" aria-label="Suivant">›</button>
@@ -283,13 +292,13 @@
     </div>
     <div class="phones-stage">
       <div id="phone-strip" data-scroll-strip data-scroll-step="228" class="scroll-strip phones-strip" style="gap:28px;">
-        <div class="phone-item"><img src="/assets/site-lesassocies-phone-crop.png" alt="Les Associés"><div class="phone-caption">Cabinet d'avocats</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-lunaserena-phone-crop.png" alt="Luna Serena"><div class="phone-caption">Infusions · Suisse</div></div>
-        <div class="phone-item"><img src="/assets/site-hilmbeauty-phone-crop.png" alt="Hilm Beauty"><div class="phone-caption">Cosmétique naturelle</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-methode-phone-crop.png" alt="Méthode CC"><div class="phone-caption">Coaching sportif</div></div>
-        <div class="phone-item"><img src="/assets/site-freshtouchmix-phone-crop.png" alt="Freshtouch Mix"><div class="phone-caption">Studio musical</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-angele-phone-crop.png" alt="Angèle"><div class="phone-caption">Cheffe &amp; naturopathe</div></div>
         <div class="phone-item"><img src="/assets/site-dolcevita-phone-crop.png" alt="Dolce Vita Paris"><div class="phone-caption">Balades en scooter vintage</div></div>
+        <div class="phone-item float-alt"><img src="/assets/site-angele-phone-crop.png" alt="Angèle"><div class="phone-caption">Cheffe &amp; naturopathe</div></div>
+        <div class="phone-item"><img src="/assets/site-freshtouchmix-phone-crop.png" alt="Freshtouch Mix"><div class="phone-caption">Studio musical</div></div>
+        <div class="phone-item float-alt"><img src="/assets/site-methode-phone-crop.png" alt="Méthode CC"><div class="phone-caption">Coaching sportif</div></div>
+        <div class="phone-item"><img src="/assets/site-hilmbeauty-phone-crop.png" alt="Hilm Beauty"><div class="phone-caption">Cosmétique naturelle</div></div>
+        <div class="phone-item float-alt"><img src="/assets/site-lunaserena-phone-crop.png" alt="Luna Serena"><div class="phone-caption">Infusions · Suisse</div></div>
+        <div class="phone-item"><img src="/assets/site-lesassocies-phone-crop.png" alt="Les Associés"><div class="phone-caption">Cabinet d'avocats</div></div>
       </div>
     </div>
   </section>
