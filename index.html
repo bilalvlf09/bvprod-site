@@ -37,10 +37,12 @@
   .portfolio-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:46px; gap:24px; flex-wrap:wrap; }
   .portfolio-title { font-size:clamp(32px,3.8vw,56px); line-height:.98; color:var(--text-dark); }
   .portfolio-strip { display:flex; gap:26px; justify-content:center; flex-wrap:wrap; }
-  .portfolio-card { width:228px; }
+  .portfolio-card { width:228px; display:block; text-decoration:none; color:inherit; border-radius:30px; cursor:pointer; }
   .portfolio-card img { width:100%; display:block; border-radius:30px; filter:drop-shadow(0 20px 40px rgba(47,47,48,.22)); }
   .portfolio-card-name { text-align:center; margin-top:16px; font-size:13px; font-weight:700; color:var(--text-dark); }
   .portfolio-card-sub { text-align:center; font-size:11px; color:var(--text-light); }
+  .portfolio-card:active { transform:scale(0.97) !important; }
+  .portfolio-card:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
 
   .motion-section { background:#000; overflow:hidden; }
   .motion-header { padding:80px 64px 44px; display:flex; align-items:flex-end; justify-content:space-between; max-width:1440px; margin:0 auto; gap:20px; flex-wrap:wrap; }
@@ -170,26 +172,26 @@
         <a href="/realisations" data-glass-btn="secondary" class="btn btn-secondary">Voir tous les projets →</a>
       </div>
       <div class="portfolio-strip" data-anim="cascade">
-        <div class="portfolio-card" style="transform:rotate(-3deg);">
+        <a class="portfolio-card" href="https://www.studio16.eu/" target="_blank" rel="noopener noreferrer" style="transform:rotate(-3deg);">
           <img src="/assets/studio16-phone.png" alt="Studio 16">
           <div class="portfolio-card-name">Studio 16</div>
           <div class="portfolio-card-sub">Esthétique · Lyon</div>
-        </div>
-        <div class="portfolio-card" style="transform:rotate(2deg);margin-top:22px;">
+        </a>
+        <a class="portfolio-card" href="https://www.votrepolesante.fr/" target="_blank" rel="noopener noreferrer" style="transform:rotate(2deg);margin-top:22px;">
           <img src="/assets/polesante-phone.png" alt="Pôle Santé">
           <div class="portfolio-card-name">Pôle Santé</div>
           <div class="portfolio-card-sub">Maison de Santé · Paris 11</div>
-        </div>
-        <div class="portfolio-card" style="transform:rotate(-2deg);">
+        </a>
+        <a class="portfolio-card" href="https://cdsportissol.wixstudio.com/cdsportissol" target="_blank" rel="noopener noreferrer" style="transform:rotate(-2deg);">
           <img src="/assets/coupdesoleil-phone.png" alt="Coup de Soleil">
           <div class="portfolio-card-name">Coup de Soleil</div>
           <div class="portfolio-card-sub">Portissol</div>
-        </div>
-        <div class="portfolio-card" style="transform:rotate(3deg);margin-top:22px;">
+        </a>
+        <a class="portfolio-card" href="https://joelvalendoff.wixstudio.com/omnisoin-ia" target="_blank" rel="noopener noreferrer" style="transform:rotate(3deg);margin-top:22px;">
           <img src="/assets/omnisoin-phone.png" alt="OmniSoin">
           <div class="portfolio-card-name">OmniSoin</div>
           <div class="portfolio-card-sub">Santé connectée</div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
