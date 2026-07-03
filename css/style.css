@@ -135,7 +135,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 .bv-nav-brand img { width:30px; height:32px; object-fit:contain; display:block; }
 .bv-nav-brand span { font-family:var(--font-display); font-size:17px; color:var(--text-dark); letter-spacing:-.01em; }
 .bv-nav-links { display:flex; align-items:center; gap:26px; }
-.bv-nav-links a { font-size:13.5px; font-weight:600; color:var(--text-mid); }
+.bv-nav-links a { font-size:15px; font-weight:600; color:var(--text-mid); }
 .bv-nav-links a.active { font-weight:700; color:var(--text-dark); }
 .bv-nav-burger { display:none; }
 
@@ -144,7 +144,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
   font-size:15px; font-weight:700; cursor:pointer; display:inline-block; white-space:nowrap;
   transition:transform .18s ease, box-shadow .18s ease;
 }
-.btn-nav { padding:11px 22px; font-size:13px; }
+.btn-nav { padding:12px 24px; font-size:14px; }
 .btn-light {
   background:linear-gradient(160deg,rgba(255,255,255,.64) 0%,rgba(194,125,255,.34) 55%,rgba(160,80,255,.22) 100%);
   backdrop-filter:blur(28px) saturate(170%); -webkit-backdrop-filter:blur(28px) saturate(170%);
@@ -217,8 +217,22 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 .grid-cascade.cols-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .grid-cascade.cols-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
 
-[data-anim="reveal"] { opacity:0; transform:translateY(36px); transition:opacity .85s ease, transform .85s ease; }
-[data-anim="reveal"].is-visible { opacity:1; transform:translateY(0); }
+[data-anim="reveal"] { opacity:0; transform:translateY(36px); filter:blur(6px); transition:opacity .85s ease, transform .85s ease, filter .85s ease; }
+[data-anim="reveal"].is-visible { opacity:1; transform:translateY(0); filter:blur(0); }
+
+@keyframes bvCardFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@media (min-width:769px) {
+  .glass-card:not([data-anim]) { animation:bvCardFloat 7s ease-in-out infinite; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
 
 /* ---------- stat cards ---------- */
 .stat-card { padding:38px 26px; border-radius:24px; text-align:center; }
@@ -355,4 +369,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
   .footer-pages { display:none; }
 
   .scroll-strip.mobile-full { margin:0 -20px; padding:0 20px 4px; }
+
+  [data-anim="reveal"] { filter:none; transform:translateY(20px); }
+  [data-anim="reveal"].is-visible { transform:translateY(0); }
 }

@@ -1,4 +1,7 @@
 // BVProd — comportements partagés (menu mobile, animations, glass buttons, formulaires)
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isDesktopViewport = () => window.matchMedia('(min-width: 769px)').matches;
+
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initReveal();
@@ -49,13 +52,15 @@ function initCascade() {
       if (!e.isIntersecting) return;
       const children = Array.from(e.target.children);
       children.forEach((child, i) => {
+        const delay = prefersReducedMotion ? 0 : i * 90;
         setTimeout(() => {
           child.style.opacity = '1';
           child.style.transform = 'translateY(0) scale(1)';
+          child.style.filter = 'blur(0)';
           const stat = child.querySelector('[data-stat-to]');
           if (stat) countUp(stat);
           addCardHover(child);
-        }, i * 100);
+        }, delay);
       });
       obs.unobserve(e.target);
     });
@@ -63,9 +68,11 @@ function initCascade() {
 
   grids.forEach(grid => {
     Array.from(grid.children).forEach(child => {
+      if (prefersReducedMotion) return;
       child.style.opacity = '0';
       child.style.transform = 'translateY(30px) scale(0.97)';
-      child.style.transition = 'opacity 0.55s ease, transform 0.55s ease, box-shadow 0.22s ease';
+      child.style.filter = isDesktopViewport() ? 'blur(4px)' : 'none';
+      child.style.transition = 'opacity 0.55s ease, transform 0.55s ease, filter 0.55s ease, box-shadow 0.22s ease';
     });
     obs.observe(grid);
   });
@@ -132,18 +139,25 @@ function initPortraitTilt() {
 /* ---------- parallax on watermarks / glows ---------- */
 function initParallax() {
   const els = document.querySelectorAll('[data-parallax]');
-  if (!els.length) return;
+  if (!els.length || prefersReducedMotion) return;
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    els.forEach(el => {
-      const speed = parseFloat(el.dataset.parallax) || 0.1;
-      el.style.transform = `translateY(${y * speed * -0.1}px)`;
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      els.forEach(el => {
+        const speed = parseFloat(el.dataset.parallax) || 0.1;
+        el.style.transform = `translateY(${y * speed * -0.1}px)`;
+      });
+      ticking = false;
     });
   }, { passive: true });
 }
 
-/* ---------- glass buttons sheen effect ---------- */
+/* ---------- glass buttons: sheen + subtle magnetic pull ---------- */
 function initGlassButtons() {
+  const canMagnet = !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches;
   document.querySelectorAll('[data-glass-btn]').forEach(btn => {
     if (btn.dataset.glassInit) return;
     btn.dataset.glassInit = '1';
@@ -153,19 +167,35 @@ function initGlassButtons() {
     const sheen = document.createElement('span');
     sheen.className = 'bv-sheen';
     btn.insertBefore(sheen, btn.firstChild);
+
+    let magnetX = 0, magnetY = 0;
+    const applyTransform = (pressed) => {
+      const press = pressed ? 'translateY(3px) scale(0.99)' : 'translateY(0) scale(1)';
+      btn.style.transform = `${press} translate(${magnetX}px, ${magnetY}px)`;
+    };
+
     btn.addEventListener('mouseenter', () => {
-      btn.style.transform = 'translateY(3px) scale(0.99)';
       btn.style.boxShadow = pressShadow;
       btn.style.filter = 'brightness(1.1) saturate(1.18)';
       sheen.style.opacity = '1';
       sheen.style.backgroundPosition = '140% 140%';
+      applyTransform(true);
     });
+    if (canMagnet) {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        magnetX = (e.clientX - r.left - r.width / 2) * 0.12;
+        magnetY = (e.clientY - r.top - r.height / 2) * 0.12;
+        applyTransform(true);
+      });
+    }
     btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translateY(0) scale(1)';
       btn.style.boxShadow = restShadow;
       btn.style.filter = '';
       sheen.style.opacity = '0';
       sheen.style.backgroundPosition = '-70% -70%';
+      magnetX = 0; magnetY = 0;
+      applyTransform(false);
     });
   });
 }
