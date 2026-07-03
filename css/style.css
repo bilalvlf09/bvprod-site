@@ -351,7 +351,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
   .desktop-only { display:none !important; }
 
   .section { padding:44px 20px 40px; }
-  .hero-dark, .hero-light { padding:120px 20px 60px; }
+  .hero-dark, .hero-light { padding:120px 20px 56px; }
   .hero-dark h1 { font-size:32px; }
 
   .bv-nav-wrap { top:14px; padding:0 14px; }
