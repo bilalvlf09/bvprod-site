@@ -211,7 +211,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 
 /* ---------- cascade grids ---------- */
 .grid-cascade { display:grid; gap:22px; }
-.grid-cascade > * { opacity:0; transform:translateY(30px) scale(.97); transition:opacity .55s ease, transform .55s ease, box-shadow .22s ease; }
+.grid-cascade > * { min-width:0; overflow-wrap:break-word; opacity:0; transform:translateY(30px) scale(.97); transition:opacity .55s ease, transform .55s ease, box-shadow .22s ease; }
 .grid-cascade.is-visible > * { opacity:1; transform:translateY(0) scale(1); }
 .grid-cascade.cols-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
 .grid-cascade.cols-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
@@ -287,7 +287,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 .scroll-strip {
   display:flex; gap:20px; overflow-x:auto; overflow-y:hidden; scroll-behavior:smooth;
   scrollbar-width:none; -ms-overflow-style:none; cursor:grab;
-  scroll-snap-type:x proximity; touch-action:pan-y;
+  scroll-snap-type:x proximity; touch-action:pan-x;
   user-select:none; -webkit-user-select:none;
 }
 .scroll-strip::-webkit-scrollbar { display:none; }

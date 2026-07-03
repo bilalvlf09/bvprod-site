@@ -57,9 +57,9 @@
 
   .rep-card-a { grid-column:span 2; padding:30px; }
   .rep-card { padding:26px; }
-  .rep-title-lg { font-family:var(--font-display); font-size:30px; color:var(--text-invert); margin-bottom:8px; }
-  .rep-title-md { font-family:var(--font-display); font-size:20px; color:var(--accent); margin-bottom:6px; }
-  .rep-title-flat { font-family:var(--font-display); font-size:18px; color:var(--text-invert); line-height:1.1; }
+  .rep-title-lg { font-family:var(--font-display); font-size:30px; color:var(--text-invert); margin-bottom:8px; text-wrap:balance; }
+  .rep-title-md { font-family:var(--font-display); font-size:20px; color:var(--accent); margin-bottom:6px; text-wrap:balance; }
+  .rep-title-flat { font-family:var(--font-display); font-size:18px; color:var(--text-invert); line-height:1.2; text-wrap:balance; }
   .rep-desc { margin:0; font-size:13px; color:var(--text-invert-mid); line-height:1.45; }
 
   .declaration-quote { font-family:var(--font-display); font-size:clamp(24px,3.4vw,40px); line-height:1.18; letter-spacing:-.015em; color:var(--text-dark); margin:0; }
@@ -68,6 +68,11 @@
   .cta-final-card { text-align:center; padding:52px 64px; display:inline-block; }
   .cta-final-title { font-size:clamp(32px,4vw,58px); color:var(--text-invert); }
   .cta-final-sub { margin:16px 0 30px; font-size:18px; color:var(--text-invert-mid); }
+
+  .ostinato-section { padding:110px 64px; }
+  .ostinato-title { font-size:clamp(44px,7vw,96px); }
+  .ostinato-capsule { padding:12px 24px; }
+  .ostinato-capsule-text { font-size:14px; letter-spacing:.18em; white-space:nowrap; }
 
   @media (max-width: 768px) {
     .home-hero-inner { flex-direction:column; }
@@ -81,7 +86,16 @@
     .portfolio-card img { filter:none; box-shadow:none; }
     .home-hero-phone img { filter:none; box-shadow:none; border-radius:30px; }
     .rep-card-a { grid-column:1 / -1; }
+    .rep-card-a, .rep-card { padding:20px; }
+    .rep-title-lg { font-size:24px; }
+    .rep-title-md { font-size:17px; }
+    .rep-title-flat { font-size:15px; }
     .cta-final-card { padding:32px 24px; }
+
+    .ostinato-section { padding:64px 20px; }
+    .ostinato-title { font-size:13vw; }
+    .ostinato-capsule { padding:10px 14px; }
+    .ostinato-capsule-text { font-size:10.5px; letter-spacing:.06em; }
   }
 </style>
 </head>
@@ -248,12 +262,12 @@
   </section>
 
   <!-- ---------- OSTINATO RIGORE ---------- -->
-  <section class="section" style="padding:110px 64px;background:linear-gradient(160deg,#2f2f3097,#000);text-align:center;">
+  <section class="section ostinato-section" style="background:linear-gradient(160deg,#2f2f3097,#000);text-align:center;">
     <div class="glow" style="top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:340px;background:radial-gradient(circle,rgba(194,125,255,.16),rgba(194,125,255,0) 70%);"></div>
-    <div style="position:relative;font-family:var(--font-display);font-size:clamp(44px,7vw,96px);letter-spacing:.02em;color:#27272a;">OSTINATO RIGORE</div>
-    <div class="glass-card-dark" style="position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:12px 24px;border-radius:100px;">
-      <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></span>
-      <span style="font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-invert-mid);font-weight:600;">Léonard de Vinci — rigueur obstinée</span>
+    <div class="ostinato-title" style="position:relative;font-family:var(--font-display);letter-spacing:.02em;color:#27272a;">OSTINATO RIGORE</div>
+    <div class="glass-card-dark ostinato-capsule" style="position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:26px;border-radius:100px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;"></span>
+      <span class="ostinato-capsule-text" style="text-transform:uppercase;color:var(--text-invert-mid);font-weight:600;">Léonard de Vinci — rigueur obstinée</span>
     </div>
   </section>
 
