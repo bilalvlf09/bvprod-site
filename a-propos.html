@@ -38,7 +38,8 @@
 
   .ap-teaser-strip { display:flex; gap:14px; justify-content:center; }
   .ap-teaser-card { width:210px; text-align:center; }
-  .ap-teaser-card img { width:100%; border-radius:20px; filter:drop-shadow(0 16px 32px rgba(47,47,48,.2)); }
+  .ap-teaser-photo { border-radius:24px; overflow:hidden; box-shadow:0 8px 16px rgba(47,47,48,.30); }
+  .ap-teaser-card img { width:100%; display:block; }
   .ap-teaser-name { font-family:var(--font-display); margin-top:12px; font-size:13px; color:var(--text-dark); }
   .ap-teaser-sub { font-size:11px; color:var(--text-light); }
 
@@ -67,7 +68,6 @@
     .ap-portrait-wrap { width:180px; order:1; margin-bottom:24px; }
     .ap-teaser-strip { overflow-x:auto; justify-content:flex-start; margin:0 -20px; padding:0 20px 4px; }
     .ap-teaser-card { flex:none; }
-    .ap-teaser-card img { filter:none; box-shadow:none; }
     .tool-pills { overflow-x:auto; flex-wrap:nowrap; padding:2px 2px 6px; scrollbar-width:none; -ms-overflow-style:none; }
     .tool-pills::-webkit-scrollbar { display:none; }
     .pricing-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:230px; overflow-x:auto; padding:20px 0 4px; }
@@ -168,22 +168,22 @@
       <div class="glass-card" style="padding:36px;">
         <div class="ap-teaser-strip" data-anim="cascade">
           <div class="ap-teaser-card" style="transform:rotate(-3deg);">
-            <img src="/assets/studio16-phone.png" alt="Studio 16">
+            <div class="ap-teaser-photo"><img src="/assets/studio16-phone.png" alt="Studio 16"></div>
             <div class="ap-teaser-name">Studio 16</div>
             <div class="ap-teaser-sub">Esthétique · Lyon</div>
           </div>
           <div class="ap-teaser-card" style="transform:rotate(2deg);">
-            <img src="/assets/polesante-phone.png" alt="MSP Faidherbe">
+            <div class="ap-teaser-photo"><img src="/assets/polesante-phone.png" alt="MSP Faidherbe"></div>
             <div class="ap-teaser-name">MSP Faidherbe</div>
             <div class="ap-teaser-sub">Pôle santé · Paris 11</div>
           </div>
           <div class="ap-teaser-card" style="transform:rotate(-2deg);">
-            <img src="/assets/vertone-phone.png" alt="Vertone">
+            <div class="ap-teaser-photo"><img src="/assets/vertone-phone.png" alt="Vertone"></div>
             <div class="ap-teaser-name">Vertone</div>
             <div class="ap-teaser-sub">Cabinet de conseil</div>
           </div>
           <div class="ap-teaser-card" style="transform:rotate(3deg);">
-            <img src="/assets/bloomco-phone.png" alt="Bloomco">
+            <div class="ap-teaser-photo"><img src="/assets/bloomco-phone.png" alt="Bloomco"></div>
             <div class="ap-teaser-name">Bloomco</div>
             <div class="ap-teaser-sub">Plateforme freelance</div>
           </div>
