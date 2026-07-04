@@ -91,12 +91,20 @@
     .rep-title-lg { font-size:24px; }
     .rep-title-md { font-size:15px; }
     .rep-title-flat { font-size:15px; }
+    .rep-title-lg, .rep-title-md, .rep-title-flat { overflow-wrap:break-word; word-break:break-word; }
     .cta-final-card { padding:32px 24px; }
 
     .ostinato-section { padding:64px 20px; }
     .ostinato-title { font-size:13vw; }
-    .ostinato-capsule { padding:10px 14px; }
-    .ostinato-capsule-text { font-size:10.5px; letter-spacing:.06em; }
+    .ostinato-capsule { padding:10px 14px; max-width:calc(100% - 40px); }
+    .ostinato-capsule-text { font-size:10.5px; letter-spacing:.06em; white-space:normal; text-align:center; }
+
+    .motion-header { padding:48px 20px 28px; }
+    .motion-progress-wrap { margin:0 20px 16px; }
+    .motion-strip { padding:0 20px 48px; }
+    .video-card { width:min(78vw, 320px); }
+    .video-card video { max-height:280px; }
+    .video-card-num { font-size:30px; }
   }
 </style>
 </head>
