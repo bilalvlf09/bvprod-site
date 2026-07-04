@@ -85,7 +85,7 @@
   .client-link.accent { color:var(--accent); }
 
   .gallery-section { background:#09090b; padding:88px 0; }
-  .gallery-wrap { display:flex; flex-wrap:wrap; gap:22px; justify-content:center; padding:0 64px; }
+  .gallery-wrap { display:flex; flex-wrap:wrap; align-items:flex-start; gap:22px; justify-content:center; padding:0 64px; }
   .gallery-item { border-radius:18px; overflow:hidden; background:#111; }
   .gallery-item.browser { width:320px; }
   .gallery-item.browser.wide { width:360px; }
@@ -93,7 +93,7 @@
   .gallery-item img { width:100%; display:block; }
   .browser-bar { display:flex; gap:6px; padding:10px 12px; background:#1c1c1e; }
   .browser-bar span { width:9px; height:9px; border-radius:50%; }
-  .gallery-caption { padding:10px 12px; font-size:11px; color:var(--text-invert-mid); background:#141414; }
+  .gallery-caption { padding:10px 12px; min-height:38px; display:flex; align-items:center; font-size:11px; color:var(--text-invert-mid); background:#141414; }
   .nutri-mock { background:#f3ead9; color:#4a3f2c; padding:24px 16px; text-align:center; font-family:var(--font-display); font-size:14px; }
 
   @media (max-width: 768px) {
