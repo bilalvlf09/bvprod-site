@@ -242,11 +242,11 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
 /* ---------- forms ---------- */
 .form-card { padding:44px; border-radius:32px; }
 .form-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px 24px; }
-.form-field { display:flex; flex-direction:column; gap:8px; }
+.form-field { display:flex; flex-direction:column; gap:8px; min-width:0; }
 .form-field.full { grid-column:1 / -1; }
 .form-field label { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-invert-mid); }
 .form-field input, .form-field select, .form-field textarea {
-  font-family:inherit; font-size:14.5px; color:var(--text-invert);
+  width:100%; font-family:inherit; font-size:14.5px; color:var(--text-invert);
   background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16);
   border-radius:14px; padding:13px 16px; outline:none; transition:border-color .2s ease;
 }
