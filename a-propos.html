@@ -49,8 +49,14 @@
 
   .tool-group { margin-bottom:28px; }
   .tool-group-title { font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-light); margin-bottom:14px; }
-  .tool-pills { display:flex; gap:10px; flex-wrap:wrap; }
-  .tool-pill { display:inline-flex; align-items:center; gap:10px; padding:10px 18px; border-radius:100px; font-size:14px; font-weight:700; color:var(--text-dark); flex:none; white-space:nowrap; }
+  .tool-pills { display:flex; gap:14px; flex-wrap:wrap; }
+  .tool-pill {
+    display:inline-flex; align-items:center; gap:10px; padding:10px 18px; border-radius:100px;
+    font-size:14px; font-weight:700; color:var(--text-dark); flex:none; white-space:nowrap;
+    background:linear-gradient(150deg,rgba(255,255,255,.40),rgba(255,255,255,.08));
+    border:1px solid rgba(255,255,255,.50);
+    box-shadow:0 2px 10px rgba(47,47,48,.05);
+  }
   .tool-pill img { width:20px; height:20px; }
 
   .pricing-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:36px; }
@@ -62,6 +68,8 @@
   .pricing-list { list-style:none; margin:0 0 20px; padding:0; }
   .pricing-list li { font-size:13px; color:var(--text-invert-mid); padding:6px 0; border-top:1px solid rgba(255,255,255,.08); }
 
+  .cta-card { display:inline-block; padding:40px 48px; margin:0 auto; max-width:100%; }
+
   @media (max-width: 768px) {
     .ap-hero { padding:120px 20px 56px; }
     .ap-hero-inner { flex-direction:column; }
@@ -72,6 +80,7 @@
     .tool-pills { overflow-x:auto; flex-wrap:nowrap; padding:2px 2px 6px; scrollbar-width:none; -ms-overflow-style:none; }
     .tool-pills::-webkit-scrollbar { display:none; }
     .pricing-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:230px; overflow-x:auto; padding:20px 0 4px; }
+    .cta-card { padding:32px 24px; width:100%; }
   }
 </style>
 </head>
@@ -251,27 +260,27 @@
       <div class="tool-group">
         <div class="tool-group-title">Recherche &amp; IA</div>
         <div class="tool-pills">
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/perplexity.svg" alt="" loading="lazy">Perplexity</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" alt="" loading="lazy">ChatGPT</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/claude.svg" alt="" loading="lazy">Claude</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/semrush.svg" alt="" loading="lazy">Semrush</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/perplexity.svg" alt="" loading="lazy">Perplexity</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" alt="" loading="lazy">ChatGPT</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/claude.svg" alt="" loading="lazy">Claude</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/semrush.svg" alt="" loading="lazy">Semrush</span>
         </div>
       </div>
       <div class="tool-group">
         <div class="tool-group-title">Design &amp; no-code</div>
         <div class="tool-pills">
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg" alt="" loading="lazy">Figma</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/adobe.svg" alt="" loading="lazy">Adobe</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/wix.svg" alt="" loading="lazy">Wix Studio</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg" alt="" loading="lazy">Figma</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/adobe.svg" alt="" loading="lazy">Adobe</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/wix.svg" alt="" loading="lazy">Wix Studio</span>
         </div>
       </div>
       <div class="tool-group">
         <div class="tool-group-title">Développement &amp; growth</div>
         <div class="tool-pills">
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/html5.svg" alt="" loading="lazy">HTML / CSS</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/wordpress.svg" alt="" loading="lazy">WordPress</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg" alt="" loading="lazy">Google Analytics</span>
-          <span class="tool-pill glass-card-soft"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleads.svg" alt="" loading="lazy">Google Ads</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/html5.svg" alt="" loading="lazy">HTML / CSS</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/wordpress.svg" alt="" loading="lazy">WordPress</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg" alt="" loading="lazy">Google Analytics</span>
+          <span class="tool-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleads.svg" alt="" loading="lazy">Google Ads</span>
         </div>
       </div>
     </div>
@@ -336,7 +345,7 @@
 
   <!-- ---------- CTA FINAL ---------- -->
   <section class="section" style="background:#EDECEE;text-align:center;">
-    <div class="glass-card" data-anim="reveal" style="display:inline-block;padding:40px 48px;">
+    <div class="glass-card cta-card" data-anim="reveal">
       <h2 style="font-size:clamp(28px,3.4vw,44px);color:var(--text-dark);">On discute ?</h2>
       <p style="margin:14px 0 26px;font-size:17px;color:var(--text-mid);">Un projet, une idée, un café virtuel — parlons-en.</p>
       <a href="/services#devis-target" data-glass-btn="light" class="btn btn-light">Demander un devis</a>
