@@ -38,7 +38,8 @@
 
   .ap-teaser-strip { display:flex; gap:14px; justify-content:center; }
   .ap-teaser-card { width:210px; text-align:center; }
-  .ap-teaser-photo { border-radius:24px; overflow:hidden; box-shadow:0 8px 16px rgba(47,47,48,.30); }
+  .ap-teaser-photo { border-radius:30px; overflow:hidden; transition:box-shadow .25s ease; }
+  .ap-teaser-card:hover .ap-teaser-photo { box-shadow:0 8px 16px rgba(47,47,48,.30); }
   .ap-teaser-card img { width:100%; display:block; }
   .ap-teaser-name { font-family:var(--font-display); margin-top:12px; font-size:13px; color:var(--text-dark); }
   .ap-teaser-sub { font-size:11px; color:var(--text-light); }
