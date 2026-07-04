@@ -373,6 +373,7 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
   .stat-num { font-size:32px; }
 
   .form-grid { grid-template-columns:1fr; }
+  .form-card button[type="submit"] { width:100%; }
 
   .footer { padding:48px 20px 32px; }
   .footer-top { flex-direction:column; align-items:center; text-align:center; gap:28px; }
