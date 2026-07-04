@@ -77,12 +77,23 @@
   .phone-caption { margin-top:14px; font-size:12px; color:var(--text-invert-mid); }
 
   .clients-section { background:#f4f3f1; }
-  .client-card { padding:28px; border-radius:22px; }
+  .client-card { padding:28px; border-radius:22px; display:block; text-decoration:none; cursor:pointer; }
   .client-card.cta { border:1px solid rgba(194,125,255,.40); }
   .client-name { font-family:var(--font-display); font-size:18px; color:var(--text-dark); margin-bottom:6px; }
   .client-sub { font-size:13px; color:var(--text-light); margin-bottom:14px; }
-  .client-link { font-size:13px; font-weight:700; color:var(--text-dark); text-decoration:none; }
+  .client-link { font-size:13px; font-weight:700; color:var(--text-dark); text-decoration:none; transition:color .2s ease; }
   .client-link.accent { color:var(--accent); }
+  .client-link .link-arrow { display:inline-block; transition:transform .25s ease; }
+  .client-card:active { transform:scale(.98); }
+  .client-card:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+  @media (hover:hover) and (pointer:fine) {
+    .client-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 22px 48px rgba(47,47,48,.16), 0 0 0 1px rgba(194,125,255,.45), inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    .client-card:hover .client-link { color:var(--accent); }
+    .client-card:hover .client-link .link-arrow { transform:translateX(4px); }
+  }
 
   .gallery-section { background:#09090b; padding:88px 0; }
   .gallery-wrap { display:flex; flex-wrap:wrap; align-items:flex-start; gap:22px; justify-content:center; padding:0 64px; }
@@ -313,36 +324,36 @@
       <div class="eyebrow">Ils m'ont fait confiance</div>
       <h2 style="font-size:clamp(28px,3.4vw,48px);color:var(--text-dark);margin-bottom:36px;">Clients &amp; partenaires</h2>
       <div class="grid-cascade cols-3 stack-mobile" data-anim="cascade">
-        <div class="client-card glass-card-soft">
+        <a href="https://www.bien-en-mains.com/" target="_blank" rel="noopener noreferrer" class="client-card glass-card-soft" data-no-hover="1">
           <div class="client-name">Bien en Main Les Ateliers</div>
           <div class="client-sub">Artisanat · Ateliers créatifs</div>
-          <span class="client-link">Visitez le site →</span>
-        </div>
-        <div class="client-card glass-card-soft">
+          <span class="client-link">Visitez le site <span class="link-arrow">→</span></span>
+        </a>
+        <a href="https://www.votrepolesante.fr/" target="_blank" rel="noopener noreferrer" class="client-card glass-card-soft" data-no-hover="1">
           <div class="client-name">MSPFC</div>
           <div class="client-sub">Maison de santé · Paris</div>
-          <span class="client-link">Visitez le site →</span>
-        </div>
-        <div class="client-card glass-card-soft">
+          <span class="client-link">Visitez le site <span class="link-arrow">→</span></span>
+        </a>
+        <a href="https://www.serraditalia.com/" target="_blank" rel="noopener noreferrer" class="client-card glass-card-soft" data-no-hover="1">
           <div class="client-name">Serraditalia</div>
           <div class="client-sub">Gastronomie · Italie</div>
-          <span class="client-link">Visitez le site →</span>
-        </div>
-        <div class="client-card glass-card-soft">
+          <span class="client-link">Visitez le site <span class="link-arrow">→</span></span>
+        </a>
+        <a href="https://cdsportissol.wixstudio.com/cdsportissol" target="_blank" rel="noopener noreferrer" class="client-card glass-card-soft" data-no-hover="1">
           <div class="client-name">Coup de Soleil à Portissol</div>
           <div class="client-sub">Hôtellerie · Var</div>
-          <span class="client-link">Visitez le site →</span>
-        </div>
-        <div class="client-card glass-card-soft">
+          <span class="client-link">Visitez le site <span class="link-arrow">→</span></span>
+        </a>
+        <a href="https://www.studio16.eu/" target="_blank" rel="noopener noreferrer" class="client-card glass-card-soft" data-no-hover="1">
           <div class="client-name">Studio 16</div>
           <div class="client-sub">Esthétique · Lyon</div>
-          <span class="client-link">Visitez le site →</span>
-        </div>
-        <div class="client-card cta" style="background:rgba(194,125,255,.08);">
+          <span class="client-link">Visitez le site <span class="link-arrow">→</span></span>
+        </a>
+        <a href="/services#devis-target" class="client-card cta" data-no-hover="1" style="background:rgba(194,125,255,.08);">
           <div class="client-name">Votre projet</div>
           <div class="client-sub">Prochaine réalisation</div>
-          <a href="/services#devis-target" class="client-link accent">Demander un devis →</a>
-        </div>
+          <span class="client-link accent">Demander un devis <span class="link-arrow">→</span></span>
+        </a>
       </div>
     </div>
   </section>
