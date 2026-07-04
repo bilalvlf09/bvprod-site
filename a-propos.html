@@ -38,8 +38,7 @@
 
   .ap-teaser-strip { display:flex; gap:14px; justify-content:center; }
   .ap-teaser-card { width:210px; text-align:center; }
-  .ap-teaser-photo { border-radius:30px; overflow:hidden; transition:box-shadow .25s ease; }
-  .ap-teaser-card:hover .ap-teaser-photo { box-shadow:0 8px 16px rgba(47,47,48,.30); }
+  .ap-teaser-photo { border-radius:30px; overflow:hidden; box-shadow:0 8px 16px rgba(47,47,48,.30); }
   .ap-teaser-card img { width:100%; display:block; }
   .ap-teaser-name { font-family:var(--font-display); margin-top:12px; font-size:13px; color:var(--text-dark); }
   .ap-teaser-sub { font-size:11px; color:var(--text-light); }
@@ -77,6 +76,7 @@
     .ap-portrait-wrap { width:180px; order:1; margin-bottom:24px; }
     .ap-teaser-strip { overflow-x:auto; justify-content:flex-start; margin:0 -20px; padding:0 20px 4px; }
     .ap-teaser-card { flex:none; }
+    .ap-teaser-photo { box-shadow:none; }
     .tool-pills { overflow-x:auto; flex-wrap:nowrap; padding:2px 2px 6px; scrollbar-width:none; -ms-overflow-style:none; }
     .tool-pills::-webkit-scrollbar { display:none; }
     .pricing-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:230px; overflow-x:auto; padding:20px 0 4px; }
