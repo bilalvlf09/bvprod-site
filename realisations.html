@@ -71,10 +71,19 @@
   .phones-section { background:#09090b; padding:88px 0; }
   .phones-stage { border-radius:36px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); padding:40px 24px; margin:0 64px; }
   .phones-strip { padding:0 24px; }
-  .phone-item { flex:none; width:200px; text-align:center; }
-  .phone-item img { width:100%; border-radius:20px; filter:drop-shadow(0 20px 40px rgba(0,0,0,.4)); }
+  .phone-item { flex:none; width:200px; text-align:center; display:block; text-decoration:none; color:inherit; cursor:pointer; }
+  .phone-item img { width:100%; border-radius:20px; filter:drop-shadow(0 20px 40px rgba(0,0,0,.4)); transition:transform .3s ease, filter .3s ease; }
   .phone-item.float-alt { margin-bottom:30px; }
-  .phone-caption { margin-top:14px; font-size:12px; color:var(--text-invert-mid); }
+  .phone-caption { margin-top:14px; font-size:12px; color:var(--text-invert-mid); transition:color .25s ease; }
+  .phone-item:active img { transform:scale(.97); }
+  .phone-item:focus-visible { outline:2px solid var(--accent); outline-offset:6px; border-radius:20px; }
+  @media (hover:hover) and (pointer:fine) {
+    .phone-item:hover img {
+      transform:translateY(-6px);
+      filter:drop-shadow(0 28px 50px rgba(0,0,0,.5)) drop-shadow(0 0 18px rgba(194,125,255,.35));
+    }
+    .phone-item:hover .phone-caption { color:#fff; }
+  }
 
   .clients-section { background:#f4f3f1; }
   .client-card { padding:28px; border-radius:22px; display:block; text-decoration:none; cursor:pointer; }
@@ -303,17 +312,17 @@
     </div>
     <div class="phones-stage">
       <div id="phone-strip" data-scroll-strip data-scroll-step="228" class="scroll-strip phones-strip" style="gap:28px;">
-        <div class="phone-item"><img src="/assets/site-dolcevita-phone-crop.png" alt="Dolce Vita Paris"><div class="phone-caption">Balades en scooter vintage</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-angele-phone-crop.png" alt="Angèle"><div class="phone-caption">Cheffe &amp; naturopathe</div></div>
-        <div class="phone-item"><img src="/assets/site-freshtouchmix-phone-crop.png" alt="Freshtouch Mix"><div class="phone-caption">Studio musical</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-methode-phone-crop.png" alt="Méthode CC"><div class="phone-caption">Coaching sportif</div></div>
-        <div class="phone-item"><img src="/assets/site-hilmbeauty-phone-crop.png" alt="Hilm Beauty"><div class="phone-caption">Cosmétique naturelle</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-lunaserena-phone-crop.png" alt="Luna Serena"><div class="phone-caption">Infusions · Suisse</div></div>
-        <div class="phone-item"><img src="/assets/site-lesassocies-phone-crop.png" alt="Les Associés"><div class="phone-caption">Cabinet d'avocats</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-abolis-phone-crop.png" alt="Abolis"><div class="phone-caption">Biotechnologie industrielle</div></div>
-        <div class="phone-item"><img src="/assets/site-realmetal-phone-crop.png" alt="Real Metal"><div class="phone-caption">Rock &amp; métal</div></div>
-        <div class="phone-item float-alt"><img src="/assets/site-mimesis-phone-crop.png" alt="Maison Mimesis"><div class="phone-caption">Mode féminine</div></div>
-        <div class="phone-item"><img src="/assets/site-dkor-phone-crop.png" alt="DK'OR"><div class="phone-caption">Rachat d'or &amp; d'argent</div></div>
+        <a class="phone-item" href="https://www.dolcevitatours.fr/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-dolcevita-phone-crop.png" alt="Dolce Vita Paris"><div class="phone-caption">Balades en scooter vintage</div></a>
+        <a class="phone-item float-alt" href="https://www.angeleferreuxmaeght.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-angele-phone-crop.png" alt="Angèle"><div class="phone-caption">Cheffe &amp; naturopathe</div></a>
+        <a class="phone-item" href="http://freshtouchmix.wixstudio.com/freshtouchmix" target="_blank" rel="noopener noreferrer"><img src="/assets/site-freshtouchmix-phone-crop.png" alt="Freshtouch Mix"><div class="phone-caption">Studio musical</div></a>
+        <a class="phone-item float-alt" href="https://www.coachingfitness.net/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-methode-phone-crop.png" alt="Méthode CC"><div class="phone-caption">Coaching sportif</div></a>
+        <a class="phone-item" href="https://bvprodwix.wixsite.com/hilm-beauty" target="_blank" rel="noopener noreferrer"><img src="/assets/site-hilmbeauty-phone-crop.png" alt="Hilm Beauty"><div class="phone-caption">Cosmétique naturelle</div></a>
+        <a class="phone-item float-alt" href="https://www.lunaserena.ch/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-lunaserena-phone-crop.png" alt="Luna Serena"><div class="phone-caption">Infusions · Suisse</div></a>
+        <a class="phone-item" href="https://bvprodwix.wixstudio.com/les-associes" target="_blank" rel="noopener noreferrer"><img src="/assets/site-lesassocies-phone-crop.png" alt="Les Associés"><div class="phone-caption">Cabinet d'avocats</div></a>
+        <a class="phone-item float-alt" href="https://www.abolis.fr/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-abolis-phone-crop.png" alt="Abolis"><div class="phone-caption">Biotechnologie industrielle</div></a>
+        <a class="phone-item" href="https://www.realmetal.fr/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-realmetal-phone-crop.png" alt="Real Metal"><div class="phone-caption">Rock &amp; métal</div></a>
+        <a class="phone-item float-alt" href="https://www.maisonmimesis.fr/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-mimesis-phone-crop.png" alt="Maison Mimesis"><div class="phone-caption">Mode féminine</div></a>
+        <a class="phone-item" href="https://www.dunkerque-or.com/" target="_blank" rel="noopener noreferrer"><img src="/assets/site-dkor-phone-crop.png" alt="DK'OR"><div class="phone-caption">Rachat d'or &amp; d'argent</div></a>
       </div>
     </div>
   </section>
