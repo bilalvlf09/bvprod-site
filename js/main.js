@@ -50,6 +50,7 @@ function initCascade() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
+      e.target.classList.add('is-visible');
       const children = Array.from(e.target.children);
       children.forEach((child, i) => {
         const delay = prefersReducedMotion ? 0 : i * 90;
