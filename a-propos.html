@@ -37,11 +37,42 @@
   .ap-watermark { font-size:250px; right:-10px; bottom:-30px; }
 
   .ap-teaser-strip { display:flex; gap:14px; justify-content:center; }
-  .ap-teaser-card { width:210px; text-align:center; }
-  .ap-teaser-photo { border-radius:30px; overflow:hidden; box-shadow:0 8px 16px rgba(47,47,48,.30); }
+  .ap-teaser-card {
+    width:210px; text-align:center; position:relative; z-index:1;
+    transition:transform .45s cubic-bezier(.16,1,.3,1);
+  }
+  .ap-teaser-card.rot-a { transform:rotate(-3deg); }
+  .ap-teaser-card.rot-b { transform:rotate(2deg); }
+  .ap-teaser-card.rot-c { transform:rotate(-2deg); }
+  .ap-teaser-card.rot-d { transform:rotate(3deg); }
+  .ap-teaser-card::before {
+    content:''; position:absolute; inset:-22px -18px; z-index:-1; border-radius:26px;
+    background:linear-gradient(150deg,rgba(255,255,255,.65),rgba(255,255,255,.18));
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:0 24px 54px rgba(47,47,48,.18), inset 0 1px 0 rgba(255,255,255,.7);
+    opacity:0; transform:scale(.92);
+    transition:opacity .45s ease, transform .45s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;
+  }
+  .ap-teaser-photo { border-radius:30px; overflow:hidden; box-shadow:0 8px 16px rgba(47,47,48,.30); transition:transform .45s cubic-bezier(.16,1,.3,1); }
   .ap-teaser-card img { width:100%; display:block; }
   .ap-teaser-name { font-family:var(--font-display); margin-top:12px; font-size:13px; color:var(--text-dark); }
   .ap-teaser-sub { font-size:11px; color:var(--text-light); }
+  .ap-teaser-card.rot-a:active { transform:rotate(-3deg) scale(0.97); }
+  .ap-teaser-card.rot-b:active { transform:rotate(2deg) scale(0.97); }
+  .ap-teaser-card.rot-c:active { transform:rotate(-2deg) scale(0.97); }
+  .ap-teaser-card.rot-d:active { transform:rotate(3deg) scale(0.97); }
+  @media (hover:hover) and (pointer:fine) {
+    .ap-teaser-card:hover { z-index:5; }
+    .ap-teaser-card.rot-a:hover { transform:rotate(-3deg) translateY(-8px); }
+    .ap-teaser-card.rot-b:hover { transform:rotate(2deg) translateY(-8px); }
+    .ap-teaser-card.rot-c:hover { transform:rotate(-2deg) translateY(-8px); }
+    .ap-teaser-card.rot-d:hover { transform:rotate(3deg) translateY(-8px); }
+    .ap-teaser-card:hover::before { opacity:1; transform:scale(1); }
+    .ap-teaser-card:hover .ap-teaser-photo { transform:translateY(-2px) scale(1.015); }
+    .ap-teaser-strip:hover .ap-teaser-card:not(:hover) { opacity:.9; }
+  }
 
   .ap-timeline-watermark { font-size:220px; right:20px; top:20px; }
   .ap-timeline { max-width:800px; margin-top:36px; }
@@ -177,22 +208,22 @@
       </div>
       <div class="glass-card" style="padding:36px;">
         <div class="ap-teaser-strip" data-anim="cascade">
-          <div class="ap-teaser-card" style="transform:rotate(-3deg);">
+          <div class="ap-teaser-card rot-a" data-no-hover="1">
             <div class="ap-teaser-photo"><img src="/assets/studio16-phone.png" alt="Studio 16"></div>
             <div class="ap-teaser-name">Studio 16</div>
             <div class="ap-teaser-sub">Esthétique · Lyon</div>
           </div>
-          <div class="ap-teaser-card" style="transform:rotate(2deg);">
+          <div class="ap-teaser-card rot-b" data-no-hover="1">
             <div class="ap-teaser-photo"><img src="/assets/polesante-phone.png" alt="MSP Faidherbe"></div>
             <div class="ap-teaser-name">MSP Faidherbe</div>
             <div class="ap-teaser-sub">Pôle santé · Paris 11</div>
           </div>
-          <div class="ap-teaser-card" style="transform:rotate(-2deg);">
+          <div class="ap-teaser-card rot-c" data-no-hover="1">
             <div class="ap-teaser-photo"><img src="/assets/vertone-phone.png" alt="Vertone"></div>
             <div class="ap-teaser-name">Vertone</div>
             <div class="ap-teaser-sub">Cabinet de conseil</div>
           </div>
-          <div class="ap-teaser-card" style="transform:rotate(3deg);">
+          <div class="ap-teaser-card rot-d" data-no-hover="1">
             <div class="ap-teaser-photo"><img src="/assets/bloomco-phone.png" alt="Bloomco"></div>
             <div class="ap-teaser-name">Bloomco</div>
             <div class="ap-teaser-sub">Plateforme freelance</div>

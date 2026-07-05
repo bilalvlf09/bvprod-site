@@ -60,6 +60,11 @@ function initCascade() {
           const stat = child.querySelector('[data-stat-to]');
           if (stat) countUp(stat);
           addCardHover(child);
+          setTimeout(() => {
+            child.style.opacity = '';
+            child.style.transform = '';
+            child.style.filter = '';
+          }, 600);
         }, delay);
       });
       obs.unobserve(e.target);

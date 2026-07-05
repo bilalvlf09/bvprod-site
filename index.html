@@ -37,12 +37,43 @@
   .portfolio-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:46px; gap:24px; flex-wrap:wrap; }
   .portfolio-title { font-size:clamp(32px,3.8vw,56px); line-height:.98; color:var(--text-dark); }
   .portfolio-strip { display:flex; gap:26px; justify-content:center; flex-wrap:wrap; }
-  .portfolio-card { width:228px; display:block; text-decoration:none; color:inherit; border-radius:30px; cursor:pointer; }
-  .portfolio-card img { width:100%; display:block; border-radius:30px; filter:drop-shadow(0 20px 40px rgba(47,47,48,.22)); }
+  .portfolio-card {
+    width:228px; display:block; text-decoration:none; color:inherit; border-radius:30px; cursor:pointer;
+    position:relative; z-index:1;
+    transition:transform .45s cubic-bezier(.16,1,.3,1);
+  }
+  .portfolio-card.rot-a { transform:rotate(-3deg); }
+  .portfolio-card.rot-b { transform:rotate(2deg); }
+  .portfolio-card.rot-c { transform:rotate(-2deg); }
+  .portfolio-card.rot-d { transform:rotate(3deg); }
+  .portfolio-card::before {
+    content:''; position:absolute; inset:-24px -20px; z-index:-1; border-radius:28px;
+    background:linear-gradient(150deg,rgba(255,255,255,.65),rgba(255,255,255,.18));
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:0 26px 60px rgba(47,47,48,.18), inset 0 1px 0 rgba(255,255,255,.7);
+    opacity:0; transform:scale(.92);
+    transition:opacity .45s ease, transform .45s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;
+  }
+  .portfolio-card img { width:100%; display:block; border-radius:30px; filter:drop-shadow(0 20px 40px rgba(47,47,48,.22)); transition:transform .45s cubic-bezier(.16,1,.3,1); }
   .portfolio-card-name { font-family:var(--font-display); text-align:center; margin-top:16px; font-size:13px; color:var(--text-dark); }
   .portfolio-card-sub { text-align:center; font-size:11px; color:var(--text-light); }
-  .portfolio-card:active { transform:scale(0.97) !important; }
   .portfolio-card:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .portfolio-card.rot-a:active { transform:rotate(-3deg) scale(0.97) !important; }
+  .portfolio-card.rot-b:active { transform:rotate(2deg) scale(0.97) !important; }
+  .portfolio-card.rot-c:active { transform:rotate(-2deg) scale(0.97) !important; }
+  .portfolio-card.rot-d:active { transform:rotate(3deg) scale(0.97) !important; }
+  @media (hover:hover) and (pointer:fine) {
+    .portfolio-card:hover { z-index:5; }
+    .portfolio-card.rot-a:hover { transform:rotate(-3deg) translateY(-8px); }
+    .portfolio-card.rot-b:hover { transform:rotate(2deg) translateY(-8px); }
+    .portfolio-card.rot-c:hover { transform:rotate(-2deg) translateY(-8px); }
+    .portfolio-card.rot-d:hover { transform:rotate(3deg) translateY(-8px); }
+    .portfolio-card:hover::before { opacity:1; transform:scale(1); }
+    .portfolio-card:hover img { transform:translateY(-2px) scale(1.015); }
+    .portfolio-strip:hover .portfolio-card:not(:hover) { opacity:.9; }
+  }
 
   .motion-section { background:#000; overflow:hidden; }
   .motion-header { padding:80px 64px 44px; display:flex; align-items:flex-end; justify-content:space-between; max-width:1440px; margin:0 auto; gap:20px; flex-wrap:wrap; }
@@ -195,22 +226,22 @@
         <a href="/realisations" data-glass-btn="secondary" class="btn btn-secondary">Voir tous les projets →</a>
       </div>
       <div class="portfolio-strip" data-anim="cascade">
-        <a class="portfolio-card" href="https://www.studio16.eu/" target="_blank" rel="noopener noreferrer" style="transform:rotate(-3deg);">
+        <a class="portfolio-card rot-a" href="https://www.studio16.eu/" target="_blank" rel="noopener noreferrer" data-no-hover="1">
           <img src="/assets/studio16-phone.png" alt="Studio 16">
           <div class="portfolio-card-name">Studio 16</div>
           <div class="portfolio-card-sub">Esthétique · Lyon</div>
         </a>
-        <a class="portfolio-card" href="https://www.votrepolesante.fr/" target="_blank" rel="noopener noreferrer" style="transform:rotate(2deg);margin-top:22px;">
+        <a class="portfolio-card rot-b" href="https://www.votrepolesante.fr/" target="_blank" rel="noopener noreferrer" data-no-hover="1" style="margin-top:22px;">
           <img src="/assets/polesante-phone.png" alt="Pôle Santé">
           <div class="portfolio-card-name">Pôle Santé</div>
           <div class="portfolio-card-sub">Maison de Santé · Paris 11</div>
         </a>
-        <a class="portfolio-card" href="https://cdsportissol.wixstudio.com/cdsportissol" target="_blank" rel="noopener noreferrer" style="transform:rotate(-2deg);">
+        <a class="portfolio-card rot-c" href="https://cdsportissol.wixstudio.com/cdsportissol" target="_blank" rel="noopener noreferrer" data-no-hover="1">
           <img src="/assets/coupdesoleil-phone.png" alt="Coup de Soleil">
           <div class="portfolio-card-name">Coup de Soleil</div>
           <div class="portfolio-card-sub">Portissol</div>
         </a>
-        <a class="portfolio-card" href="https://joelvalendoff.wixstudio.com/omnisoin-ia" target="_blank" rel="noopener noreferrer" style="transform:rotate(3deg);margin-top:22px;">
+        <a class="portfolio-card rot-d" href="https://joelvalendoff.wixstudio.com/omnisoin-ia" target="_blank" rel="noopener noreferrer" data-no-hover="1" style="margin-top:22px;">
           <img src="/assets/omnisoin-phone.png" alt="OmniSoin">
           <div class="portfolio-card-name">OmniSoin</div>
           <div class="portfolio-card-sub">Santé connectée</div>
