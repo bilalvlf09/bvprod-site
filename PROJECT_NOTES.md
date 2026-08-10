@@ -1,5 +1,22 @@
 # BVProd — Notes de handoff
 
+> ## ⚠️ RÈGLE À NE JAMAIS OUBLIER : remplacer une image
+>
+> Les fichiers de `/assets/` sont servis avec un cache navigateur d'**un an en `immutable`**
+> (voir `vercel.json`). C'est ce qui rend le site rapide, mais ça a une contrepartie stricte :
+>
+> **Pour remplacer une image existante, il FAUT changer son nom de fichier.**
+> Exemple : `site-dkor-phone-crop.webp` → `site-dkor-phone-crop-v2.webp`, puis mettre à jour le `src`.
+>
+> Si on écrase une image en gardant le même nom, les visiteurs déjà venus continueront de voir
+> l'ancienne version **jusqu'à un an**, et un rechargement forcé (Cmd+Maj+R) ne suffira même pas :
+> le mot-clé `immutable` dit explicitement au navigateur de ne pas revalider, même au reload.
+> Seule une navigation privée ou un vidage manuel du cache montrerait la nouvelle version.
+>
+> - **Ajouter** une nouvelle image : aucun problème, rien à faire.
+> - **Remplacer** une image : renommer le fichier (ou en dernier recours ajouter `?v=2` au `src`).
+> - Ne jamais étendre ce cache long à `css/` ou `js/`, qui gardent le même nom à chaque déploiement.
+
 ## C'est quoi
 Site vitrine BVProd (agence Wix Studio, Paris), construit en HTML/CSS/JS simple (pas de framework) à partir de 12 maquettes figées (`.dc.html`, desktop+mobile) fournies dans `../handoff/`. Chaque maquette a été fusionnée en une seule page responsive.
 
@@ -16,6 +33,16 @@ Site vitrine BVProd (agence Wix Studio, Paris), construit en HTML/CSS/JS simple 
 - **Assets images** : convention de nom `site-{nom}-phone-crop.png` pour les mockups téléphone dans le carrousel "Diverses réalisations" (`realisations.html`). Ces images doivent être **recadrées pile au bord du téléphone** (aucune marge blanche), avec les coins arrondis remplis en gris foncé `(40,40,40)` pour matcher les mockups existants — voir méthode Python/PIL utilisée dans l'historique (flood-fill depuis les 4 coins).
 - **Réseaux sociaux** (Instagram/LinkedIn sur Contact) : pas d'URL réelle fournie, laissés non cliquables volontairement.
 - **Bouton "Télécharger mon CV"** (À propos) : remplacé par un lien LinkedIn réel.
+
+## Pipeline images (optimisation perf, août 2026)
+- **Toutes les images de contenu sont en WebP** dans `assets/`. Les originaux non compressés sont conservés dans `assets-originaux/` (gitignoré, ~101 Mo) et restent dans l'historique git.
+- **Règle de dimensionnement** : résolution du fichier = largeur d'affichage CSS réelle **× 3** (couvre les écrans 2x et 3x), jamais d'agrandissement au-delà de l'original. Ne pas livrer d'image à 3000 px pour un affichage à 360 px.
+- **Qualité** : WebP q94 par défaut, validé image par image (PSNR ≥ 40 dB, SSIM ≥ 0,994, plus contrôle visuel à taille réelle). Les images qui échouent au seuil sont encodées en **WebP sans perte** plutôt que dégradées : `omnisoin-phone`, `polesante-phone`, `site-lesassocies-phone-crop`, `site-compagnyarena`, `site-dataplus`. `portrait.jpeg` est resté en JPEG d'origine (le WebP était plus lourd).
+- **Restés hors pipeline volontairement** : `logo-bvprod.png` (favicon, le PNG est requis) et `og-image.jpg` (partage social, les scrapers gèrent mal le WebP).
+- **⚠️ Cache d'un an sur `/assets/*`** (`immutable`, voir `vercel.json`). Pour **remplacer** une image existante, il faut **changer son nom de fichier** (ou ajouter `?v=2` dans le `src`), sinon les visiteurs déjà venus continueront de voir l'ancienne version pendant un an. Ajouter une nouvelle image ne pose aucun problème.
+- `css/` et `js/` sont volontairement **exclus** de ce cache long : ils gardent le même nom à chaque déploiement et doivent être revalidés à chaque visite.
+- **`loading="lazy"` partout sauf** : les logos de nav, le téléphone du hero (`index.html`) et le portrait (`a-propos.html`), qui sont visibles sans défiler et portent `fetchpriority="high"`.
+- Toute nouvelle `<img>` doit porter `width`, `height` (dimensions intrinsèques réelles, pour éviter le décalage de mise en page) et `decoding="async"`.
 
 ## Contraintes d'environnement (important)
 - **Pas de Node/npm/vercel CLI/gh CLI** dans cet environnement de dev — le déploiement se fait via push Git (déclenche auto-redeploy Vercel), jamais de build local.
