@@ -43,6 +43,12 @@ body {
   color: var(--text-dark);
 }
 img, video { max-width: 100%; }
+/* Les <img> portent des attributs width/height (pour reserver la place et eviter les
+   sauts de mise en page au chargement). Sans cette ligne, l'attribut height agit comme
+   une hauteur CSS forcee et etire l'image des que le CSS ne fixe que la largeur.
+   Specificite 0-0-1 : neutralise l'attribut, mais ne prend jamais le dessus sur une
+   regle de classe (.featured-cover img, .ap-portrait img, .bv-nav-brand img...). */
+img { height: auto; }
 a { color: inherit; }
 button { font-family: inherit; cursor: pointer; }
 ::selection { background: var(--accent); color: var(--text-dark); }
