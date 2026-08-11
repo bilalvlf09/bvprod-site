@@ -15,7 +15,29 @@
 >
 > - **Ajouter** une nouvelle image : aucun problème, rien à faire.
 > - **Remplacer** une image : renommer le fichier (ou en dernier recours ajouter `?v=2` au `src`).
-> - Ne jamais étendre ce cache long à `css/` ou `js/`, qui gardent le même nom à chaque déploiement.
+>
+> ## ⚠️ RÈGLE À NE JAMAIS OUBLIER : modifier le CSS ou le JS
+>
+> `css/style.css` et `js/main.js` sont **aussi** en cache immutable d'un an, et référencés
+> dans les 6 pages HTML avec un numéro de version :
+>
+> ```html
+> <link rel="stylesheet" href="/css/style.css?v=20260811">
+> <script src="/js/main.js?v=20260811"></script>
+> ```
+>
+> **Après CHAQUE modification de `style.css` ou de `main.js`, il FAUT incrémenter ce `?v=`
+> dans les 6 fichiers HTML**, sinon les visiteurs déjà venus garderont l'ancienne version.
+> Une seule commande suffit, en remplaçant la date par celle du jour :
+>
+> ```bash
+> cd ~/Desktop/"BVPROD CLAUDE CODE"/bvprod-site && sed -i '' 's/?v=[0-9]\{8\}/?v=20260812/g' *.html
+> ```
+>
+> C'est ce versionnage qui permet de servir le CSS et le JS depuis le cache sans aucun
+> aller-retour réseau, et donc d'avoir un changement de page quasi instantané.
+> Sans lui, chaque clic dans le menu imposait 2 allers-retours bloquants avant le
+> moindre pixel affiché.
 
 ## C'est quoi
 Site vitrine BVProd (agence Wix Studio, Paris), construit en HTML/CSS/JS simple (pas de framework) à partir de 12 maquettes figées (`.dc.html`, desktop+mobile) fournies dans `../handoff/`. Chaque maquette a été fusionnée en une seule page responsive.
