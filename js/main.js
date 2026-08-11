@@ -2,6 +2,24 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isDesktopViewport = () => window.matchMedia('(min-width: 769px)').matches;
 
+/* Arrivée sur une ancre depuis une autre page (ex. "Demander un devis" ->
+   /services#devis-target). html porte scroll-behavior:smooth, donc le navigateur
+   n'allait pas à l'ancre : il ANIMAIT la descente sur 2449 px, en repassant par
+   le thread principal à cause du overflow-x:hidden posé sur le même élément.
+   On rend l'arrivée immédiate, puis on rétablit le défilement doux pour les
+   ancres internes, dont le confort est conservé. */
+if (window.location.hash) {
+  const root = document.documentElement;
+  const precedent = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  const rendre = () => { root.style.scrollBehavior = precedent; };
+  addEventListener('load', () => {
+    const cible = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (cible) cible.scrollIntoView();
+    requestAnimationFrame(rendre);
+  }, { once: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initReveal();
@@ -248,6 +266,23 @@ function initScrollStrips() {
 function initMotionStrips() {
   document.querySelectorAll('[data-motion-strip]').forEach(strip => {
     const bar = document.querySelector(`[data-scroll-progress="${strip.id}"]`);
+
+    /* Les <video> sont en preload="none" dans le HTML : sans ça, le navigateur
+       demandait les métadonnées des 4 fichiers (36 Mo) dès l'analyse de la page,
+       ce qui saturait la connexion et retardait tout le reste, y compris main.js
+       et la navigation suivante. On charge les métadonnées (donc la première
+       image de chaque vidéo) seulement à l'approche de l'écran : l'aspect au
+       repos est identique, mais plus rien ne part au chargement. */
+    const preloadObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const v = e.target;
+        if (v.preload !== 'metadata') { v.preload = 'metadata'; v.load(); }
+        preloadObs.unobserve(v);
+      });
+    }, { rootMargin: '600px 0px' });
+    strip.querySelectorAll('video').forEach(v => preloadObs.observe(v));
+
     strip.querySelectorAll('video').forEach((v) => {
       v.muted = true; v.loop = true; v.pause();
       const wrap = v.parentElement;
