@@ -313,8 +313,10 @@ function initMotionStrips() {
         const willMute = !v.muted;
         strip.querySelectorAll('video').forEach(ov => { ov.muted = true; });
         v.muted = willMute;
-        soundBtn.textContent = willMute ? '🔇' : '🔊';
       });
+      /* L'icône suit l'état réel de la vidéo : quand une autre carte prend le son,
+         celle-ci repasse en sourdine ET son bouton repasse à 🔇. */
+      v.addEventListener('volumechange', () => { soundBtn.textContent = v.muted ? '🔇' : '🔊'; });
       wrap.appendChild(soundBtn);
     });
 
