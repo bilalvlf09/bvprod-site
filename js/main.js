@@ -264,6 +264,7 @@ function initScrollStrips() {
 
 /* ---------- motion design video strip ---------- */
 function initMotionStrips() {
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   document.querySelectorAll('[data-motion-strip]').forEach(strip => {
     const bar = document.querySelector(`[data-scroll-progress="${strip.id}"]`);
 
@@ -297,8 +298,12 @@ function initMotionStrips() {
       const sync = () => { playOverlay.style.opacity = v.paused ? '1' : '0'; playOverlay.style.pointerEvents = v.paused ? 'auto' : 'none'; };
       v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
 
+      /* Lecture au survol réservée aux appareils qui ont un vrai survol (souris, trackpad).
+         Sur écran tactile, un tap envoie aussi un mouseenter au bandeau : les autres vidéos
+         démarraient et le clic qui suit remettait en pause celle qu'on venait de toucher.
+         Sur tactile, c'est donc le bouton play de chaque carte qui pilote sa vidéo. */
       const card = wrap.parentElement;
-      if (card) {
+      if (card && canHover) {
         card.addEventListener('mouseenter', () => v.play().catch(() => {}));
         card.addEventListener('mouseleave', () => v.pause());
       }
