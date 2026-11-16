@@ -395,3 +395,16 @@ h1, h2, h3 { font-family:var(--font-display); margin:0; letter-spacing:-0.02em; 
   [data-anim="reveal"] { filter:none; transform:translateY(20px); }
   [data-anim="reveal"].is-visible { transform:translateY(0); }
 }
+
+/* ---------- bouton lecture des cartes vidéo (apparaît au survol) ---------- */
+.video-card { position:relative; }
+.video-play-overlay { position:absolute; top:14px; left:14px; right:14px; height:280px; display:flex; align-items:center; justify-content:center; z-index:8; cursor:pointer; opacity:0; transition:opacity .25s ease; border-radius:18px; }
+.video-play-btn { width:72px; height:72px; border-radius:50%; background:rgba(0,0,0,.55); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; padding-left:4px; transform:scale(.88); transition:transform .25s ease, background .25s ease; }
+.video-card:hover .video-play-overlay, .video-card.no-hover .video-play-overlay, .video-play-overlay:focus-visible { opacity:1; }
+.video-card:hover .video-play-btn { transform:scale(1); }
+.video-play-overlay:hover .video-play-btn { background:rgba(0,0,0,.72); transform:scale(1.08); }
+/* En lecture : le bouton disparaît ; au survol il devient « pause » */
+.video-card.is-playing .video-play-overlay { opacity:0; }
+.video-card.is-playing:hover .video-play-overlay { opacity:1; }
+.video-card.is-loading .video-play-btn { animation:vpulse 1s ease-in-out infinite; }
+@keyframes vpulse { 50% { opacity:.55; } }

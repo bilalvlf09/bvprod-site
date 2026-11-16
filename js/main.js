@@ -274,15 +274,21 @@ function initMotionStrips() {
        et la navigation suivante. On charge les métadonnées (donc la première
        image de chaque vidéo) seulement à l'approche de l'écran : l'aspect au
        repos est identique, mais plus rien ne part au chargement. */
-    const preloadObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const v = e.target;
-        if (v.preload !== 'metadata') { v.preload = 'metadata'; v.load(); }
-        preloadObs.unobserve(v);
-      });
-    }, { rootMargin: '600px 0px' });
-    strip.querySelectorAll('video').forEach(v => preloadObs.observe(v));
+    /* Chargement différé et étalé : une fois la page entièrement chargée, on demande les
+       métadonnées (donc la première image) d'une vidéo à la fois. Fiable pour un bandeau
+       horizontal, contrairement à un IntersectionObserver vertical. */
+    const loadFrames = () => {
+      const queue = Array.from(strip.querySelectorAll('video'));
+      const next = () => {
+        const v = queue.shift();
+        if (!v) return;
+        if (v.preload === 'none') { v.preload = 'metadata'; v.load(); }
+        setTimeout(next, 400);
+      };
+      setTimeout(next, 800);
+    };
+    if (document.readyState === 'complete') loadFrames();
+    else window.addEventListener('load', loadFrames, { once: true });
 
     strip.querySelectorAll('video').forEach((v) => {
       v.muted = true; v.loop = true; v.pause();
@@ -290,23 +296,38 @@ function initMotionStrips() {
       if (!wrap) return;
       wrap.style.position = 'relative';
 
+      /* Bouton lecture : visible seulement au survol de la carte (souris) tant que la vidéo
+         est à l'arrêt ; sur tactile il reste toujours visible. Un clic lance ou met en pause. */
+      const card = wrap;
       const playOverlay = document.createElement('div');
-      playOverlay.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:8;transition:opacity .25s ease;cursor:pointer;';
-      playOverlay.innerHTML = '<div style="width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.52);backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 4.5L20 12L6 19.5V4.5Z" fill="#EDECEE"/></svg></div>';
-      playOverlay.addEventListener('click', () => { v.paused ? v.play().catch(() => {}) : v.pause(); });
+      playOverlay.className = 'video-play-overlay';
+      playOverlay.setAttribute('role', 'button');
+      playOverlay.setAttribute('aria-label', 'Lire / mettre en pause la vidéo');
+      playOverlay.innerHTML = '<span class="video-play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 4.5L20 12L7 19.5V4.5Z" fill="#fff"/></svg></span>';
       wrap.appendChild(playOverlay);
-      const sync = () => { playOverlay.style.opacity = v.paused ? '1' : '0'; playOverlay.style.pointerEvents = v.paused ? 'auto' : 'none'; };
-      v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
 
-      /* Lecture au survol réservée aux appareils qui ont un vrai survol (souris, trackpad).
-         Sur écran tactile, un tap envoie aussi un mouseenter au bandeau : les autres vidéos
-         démarraient et le clic qui suit remettait en pause celle qu'on venait de toucher.
-         Sur tactile, c'est donc le bouton play de chaque carte qui pilote sa vidéo. */
-      const card = wrap.parentElement;
-      if (card && canHover) {
-        card.addEventListener('mouseenter', () => v.play().catch(() => {}));
-        card.addEventListener('mouseleave', () => v.pause());
-      }
+      const start = () => {
+        /* Les fichiers sont lourds et en preload="none" : on force le chargement au clic. */
+        if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); }
+        const p = v.play();
+        if (p && p.catch) p.catch(() => {});
+      };
+      playOverlay.addEventListener('click', () => { v.paused ? start() : v.pause(); });
+      const ICON_PLAY = '<path d="M7 4.5L20 12L7 19.5V4.5Z" fill="#fff"/>';
+      const ICON_PAUSE = '<path d="M6 4H10V20H6ZM14 4H18V20H14Z" fill="#fff"/>';
+      const icon = playOverlay.querySelector('svg');
+      /* Le bouton couvre exactement la zone de la vidéo (hauteur variable selon le format). */
+      const fit = () => { playOverlay.style.height = v.offsetHeight + 'px'; };
+      const sync = () => {
+        card.classList.toggle('is-playing', !v.paused);
+        card.classList.toggle('is-loading', !v.paused && v.readyState < 3);
+        icon.innerHTML = v.paused ? ICON_PLAY : ICON_PAUSE;
+        fit();
+      };
+      ['play', 'pause', 'playing', 'waiting', 'canplay', 'loadedmetadata', 'ended'].forEach(ev => v.addEventListener(ev, sync));
+      window.addEventListener('resize', fit);
+      sync();
+      if (!canHover) card.classList.add('no-hover');
 
       const soundBtn = document.createElement('button');
       soundBtn.type = 'button';
